@@ -4,11 +4,15 @@ import { gsap, ScrollTrigger, Draggable, MotionPathPlugin, ScrollToPlugin } from
 
 
 window.$ = window.jQuery = require('jquery');
+
 import { rem } from '../utils/constants';
+import { scroll } from '../utils/scroll';
 
 import popup from '../utils/popup';
 import form from '../utils/form';
-import { scroll } from '../utils/scroll';
+import mainBanner from '../components/main-banner';
+import result from '../components/result';
+
 
 export const modules = {};
 document.addEventListener('DOMContentLoaded', () => {
@@ -22,6 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch {}
   try {
     scroll();
+  } catch {}
+  try {
+    mainBanner();
+  } catch {}
+  try {
+    result();
   } catch {}
 });
 
