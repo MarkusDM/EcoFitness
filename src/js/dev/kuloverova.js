@@ -12,6 +12,7 @@ import popup from '../utils/popup';
 import form from '../utils/form';
 import mainBanner from '../components/main-banner';
 import result from '../components/result';
+import specialists from '../components/specialists';
 
 
 export const modules = {};
@@ -32,6 +33,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch {}
   try {
     result();
+  } catch {}
+  try {
+    specialists();
   } catch {}
 });
 

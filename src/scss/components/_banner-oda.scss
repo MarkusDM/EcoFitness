@@ -1,0 +1,254 @@
+.banner-oda {
+  // .banner-oda__inner
+
+  &__inner {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-image: url(./assets/images/main-banner-mask.svg);
+    mask-image: url(./assets/images/main-banner-mask.svg);
+    background-color: $bg;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 6.4rem 6.4rem;
+    gap: 17rem;
+
+    @include small-tablet {
+      -webkit-mask-image: none;
+      mask-image: none;
+      padding: 4.8rem 3.2rem 0;
+      flex-direction: column;
+      align-items: flex-start;
+      border-radius: 3.2rem;
+      gap: 6.4rem;
+    }
+  }
+
+  // .banner-oda__info-box
+
+  &__info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 19.3rem;
+    width: 72.8rem;
+    flex-shrink: 0;
+    @include small-tablet {
+      gap: 4.8rem;
+      width: 100%;
+    }
+  }
+
+  // .banner-oda__title-wrapper
+
+  &__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include small-tablet {
+      gap: 3.2rem;
+    }
+  }
+
+  // .banner-oda__title-box
+
+  &__title-box {
+  }
+
+  // .banner-oda__title
+
+  &__title {
+  }
+
+  // .banner-oda__info-text-wrapper
+
+  &__info-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+    width: 57.8rem;
+    @include small-tablet {
+      width: 100%;
+      gap: 3.2rem;
+    }
+  }
+
+  // .banner-oda__info-text-title
+
+  &__info-text-title {
+  }
+
+  // .banner-oda__info-text-box
+
+  &__info-text-box {
+    color: $gray;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    @include small-tablet {
+      gap: 2rem;
+    }
+  }
+
+  // .banner-oda__info-text
+
+  &__info-text {
+  }
+
+  // .banner-oda__link-wrapper
+
+  &__link-wrapper {
+    padding: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 6.2rem;
+    backdrop-filter: blur(58px);
+    -webkit-backdrop-filter: blur(58px);
+    box-shadow: 0 1.2rem 4rem 0 rgba(173, 173, 173, 0.16);
+    background: rgba(231, 231, 231, 0.5);
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    border-radius: 10rem;
+    width: 100%;
+
+    @include small-tablet {
+      padding: 4rem;
+      box-shadow: 0 3rem 10rem 0 rgba(127, 127, 127, 0.2);
+      border: 0.2rem solid rgba(255, 255, 255, 0.3);
+      border-radius: 2.2rem;
+    }
+  }
+
+  // .banner-oda__link-img-wrapper
+
+  &__link-img-wrapper {
+    position: relative;
+    width: 15.8rem;
+    height: 15.8rem;
+    @include small-tablet {
+      display: none;
+    }
+  }
+
+  // .banner-oda__link-img-box
+
+  &__link-img-box {
+    width: 15.8rem;
+    height: 15.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @include small-tablet {
+      width: 32.6rem;
+      height: 32.6rem;
+    }
+  }
+
+  // .banner-oda__link-img-border-box
+
+  &__link-img-border-box {
+    position: absolute;
+    top: 0.9rem;
+    bottom: 0.9rem;
+    right: -5.2rem;
+    width: 6.1rem;
+    height: 14rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @include small-tablet {
+    }
+  }
+
+  // .banner-oda__link-info-box
+
+  &__link-info-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    width: 43.2rem;
+    margin-bottom: 0.5rem;
+    @include small-tablet {
+      width: 100%;
+      margin-bottom: 0;
+      gap: 3.2rem;
+    }
+  }
+
+  // .banner-oda__link-text
+
+  &__link-text {
+    @include small-tablet {
+      font-weight: 400;
+      font-size: 3.2rem;
+      line-height: 130%;
+    }
+  }
+
+  &__link-box {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+  }
+
+  // .banner-oda__link
+
+  &__link {
+
+  }
+
+  // .banner-oda__link-btn-box
+
+  &__link-btn-box {
+    display: flex;
+    align-items: center;
+    gap: 2.4rem;
+    @include small-tablet {
+      display: none;
+    }
+  }
+
+  // .banner-oda__link-btn
+
+  &__link-btn {
+  }
+
+  // .banner-oda__link-btn-svg-box
+
+  &__link-btn-svg-box {
+    width: 2.4rem;
+    height: 2.4rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // .banner-oda__img-box
+
+  &__img-box {
+    flex-shrink: 0;
+    width: 96.2rem;
+    height: 88.4rem;
+    border-radius: 2.4rem;
+    overflow: hidden;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include small-tablet {
+      border-radius: 3.2rem;
+      margin: 0 -3.2rem;
+      width: 75rem;
+      height: 62.8rem;
+    }
+  }
+}
