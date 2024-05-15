@@ -11,6 +11,7 @@ import { scroll } from '../utils/scroll';
 import popup from '../utils/popup';
 import form from '../utils/form';
 import mainBanner from '../components/main-banner';
+import result from '../components/result';
 
 
 export const modules = {};
@@ -28,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch {}
   try {
     mainBanner();
+  } catch {}
+  try {
+    result();
   } catch {}
 });
 
