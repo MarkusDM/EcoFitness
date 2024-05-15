@@ -317,17 +317,7 @@
   // .main-banner__link
 
   &__link {
-    display: block;
-    padding: 0.6rem 3rem;
-    border-radius: 2rem;
-    background-color: $white;
-    width: fit-content;
-    font-size: 1.4rem;
-    @include small-tablet {
-      font-size: 2.8rem;
-      border-radius: 4rem;
-      padding: 1.2rem 6rem;
-    }
+
   }
 
   // .main-banner__img-box
