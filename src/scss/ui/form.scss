@@ -9,32 +9,19 @@
   transition: color 0.3s;
   width: 100%;
   // border: 0.1rem solid $gray;
-  padding: 1.6rem 2.4rem;
+  border-radius: 3.2rem;
+  padding: 1.4rem 2.4rem;
   transition: border 0.3s;
-  & + .placeholder {
-    z-index: 100;
-    position: absolute;
-    left: 2.4rem;
-    cursor: text;
-    // color: $gray-text;
-    & span {
-      color: #f64646;
-    }
-    @include small-tablet {
-      font-size: 3.2rem;
-      left: 4rem;
-    }
-  }
-
-  &.phone-mask:hover {
-    & + span {
-      display: none;
-    }
-  }
+  border: 0.1rem solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(58px);
+  -webkit-backdrop-filter: blur(58px);
+  box-shadow: 0 1.5rem 4rem 0 rgba(173, 173, 173, 0.2);
+  background: rgba(231, 231, 231, 0.7);
 
   &::placeholder {
     // color: $gray-text;
     opacity: 1;
+    transition: color 0.3s;
   }
 
   color: $black;
@@ -42,6 +29,11 @@
   @include small-tablet {
     padding: 3.2rem 4rem;
     font-size: 3.2rem;
+    border: 0.2rem solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(58px);
+    box-shadow: 0 3rem 8rem 0 rgba(173, 173, 173, 0.2);
+    background: $gray-cards;
+    border-radius: 6.4rem;  padding: 2.8rem 4.8rem;
   }
 }
 
@@ -64,17 +56,19 @@
 
 ._form-error input,
 ._form-error textarea {
-  border: 0.1rem solid #a4001e;
+  &::placeholder {
+    color: #e25959;
+  }
 }
 
 .error-span {
   position: absolute;
   bottom: -1.8rem;
-  left: 0;
-  color: #a4001e;
-  font-family: 'OpenSans';
+  left: 2.4rem;
+  color: #e25959;
+  font-family: 'Gilroy';
   font-weight: 400;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s;
@@ -84,11 +78,15 @@
     opacity: 1;
     line-height: normal;
   }
+
+  @include small-tablet {
+    font-size: 2.4rem;
+    bottom: -3rem;
+    left: 4.8rem;
+  }
 }
 
 .form__input-wrapper {
   display: flex;
   align-items: center;
 }
-
-

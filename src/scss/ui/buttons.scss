@@ -33,6 +33,7 @@
 .link-list {
   display: flex;
   width: fit-content;
+  align-items: center;
   border: 0.1rem solid $black;
   border-radius: 3.2rem;
   backdrop-filter: blur(58px);
