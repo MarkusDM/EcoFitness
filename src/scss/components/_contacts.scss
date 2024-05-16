@@ -1,0 +1,314 @@
+.contacts {
+  &__container {
+    position: relative;
+  }
+
+  &__info {
+    position: absolute;
+    left: 6.4rem;
+    top: 6.4rem;
+    z-index: 10;
+
+    &-top {
+      padding: 4rem;
+      margin-bottom: 1rem;
+      background: #e7e7e780;
+      backdrop-filter: blur(1.5rem);
+      box-shadow: 0px 15px 50px 0px #7f7f7f33;
+      border: 1px solid #ffffff4d;
+      border-radius: 3.2rem;
+
+      &--row {
+        &:first-child {
+          display: flex;
+          column-gap: 11.8rem;
+          margin-bottom: 2.4rem;
+        }
+
+        &:last-child {
+          padding: 4rem;
+          border-radius: 3.2rem;
+          background: rgba(231, 231, 231, 0.7);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          box-shadow: 0px 15px 50px 0px rgba(127, 127, 127, 0.2);
+        }
+      }
+
+      &--column {
+        &:first-child {
+          display: flex;
+          flex-direction: column;
+          width: 28.8rem;
+          margin-bottom: 2.4rem;
+
+          div {
+            &:first-child {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 7rem;
+              height: 7rem;
+              border-radius: 50%;
+              background: rgba(231, 231, 231, 0.7);
+              border: 1px solid rgba(255, 255, 255, 0.3);
+              box-shadow: 0px 15px 50px 0px rgba(127, 127, 127, 0.2);
+
+              svg {
+              }
+            }
+
+            &:last-child {
+              margin-top: auto;
+            }
+          }
+        }
+
+        &:last-child {
+          width: 24.2rem;
+          height: 24.2rem;
+          border-radius: 2.4rem;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      &--contact {
+        display: flex;
+        justify-content: space-between;
+
+        &:not(:last-child) {
+          margin-bottom: 2.4rem;
+        }
+
+        div {
+          &:last-child {
+            max-width: 19.3rem;
+            color: $gray;
+            font-weight: 400;
+
+            span {
+              display: block;
+              text-align: right;
+
+              &:not(:last-child) {
+                margin-bottom: 1rem;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      column-gap: 1rem;
+      align-items: center;
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 10rem;
+      background: rgba(231, 231, 231, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0px 12px 40px 0px rgba(173, 173, 173, 0.16);
+      backdrop-filter: blur(1rem);
+
+      &--left {
+        position: relative;
+        display: flex;
+        align-items: center;
+        column-gap: 0.4rem;
+      }
+
+      &--right {
+        div {
+          &:first-child {
+            margin-bottom: 2.4rem;
+          }
+
+          &:last-child {
+            display: flex;
+            column-gap: 2.4rem;
+          }
+        }
+      }
+
+      &--img {
+        width: 15.8rem;
+        height: 15.8rem;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      &--phone {
+        width: 4.8rem;
+        height: 4.8rem;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &--arc {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -2rem;
+        height: 14rem;
+        width: 13.3rem;
+        z-index: -1;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      &--social {
+        width: 2.4rem;
+        height: 2.4rem;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &__map {
+    height: 91.8rem;
+    border-radius: 5rem;
+    overflow: hidden;
+
+    & > div {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media (max-width: 48em) {
+    padding: 4.8rem 0;
+
+    &__container {
+      padding: 0 3.2rem;
+    }
+
+    &__info {
+      position: static;
+      margin-bottom: 4.8rem;
+
+      &-top {
+        position: relative;
+        padding-top: 16rem;
+        margin-bottom: 4.8rem;
+
+        &--row {
+          justify-content: space-between;
+
+          &:first-child {
+            margin-bottom: 4.8rem;
+          }
+        }
+
+        &--column {
+          &:first-child {
+            flex-direction: column-reverse;
+            align-items: center;
+            width: auto;
+
+            div {
+              &:first-child {
+                width: 14rem;
+                height: 14rem;
+                margin: 0;
+              }
+
+              &:last-child {
+                position: absolute;
+                left: 4rem;
+                top: 4rem;
+              }
+            }
+          }
+
+          &:last-child {
+            width: 14rem;
+            height: 14rem;
+          }
+        }
+
+        &--contact {
+          flex-direction: column;
+          row-gap: 1.6rem;
+
+          &:not(:last-child) {
+            margin-bottom: 3.2rem;
+          }
+
+          div {
+            &:last-child {
+              max-width: 38.6rem;
+
+              span {
+                text-align: left;
+
+                &:not(:last-child) {
+                  margin-bottom: 2rem;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &-bottom {
+        padding: 4.2rem 8.1rem;
+        border-radius: 20rem;
+
+        &--left {
+          display: none;
+        }
+
+        &--right {
+          div {
+            &:first-child {
+              text-align: center;
+              margin-bottom: 3.2rem;
+            }
+
+            &:last-child {
+              flex-wrap: wrap;
+              justify-content: center;
+              column-gap: 4.8rem;
+              row-gap: 3.2rem;
+
+              .link {
+                margin: 0 3.2rem 0 3.2rem;
+              }
+            }
+          }
+        }
+
+        &--social {
+          width: 4.8rem;
+          height: 4.8rem;
+        }
+      }
+    }
+
+    &__map {
+      height: 68.8rem;
+    }
+  }
+}
