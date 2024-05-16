@@ -13,6 +13,7 @@ import form from '../utils/form';
 import mainBanner from '../components/main-banner';
 import result from '../components/result';
 import specialists from '../components/specialists';
+import founder from '../components/founder';
 
 
 export const modules = {};
@@ -36,6 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch {}
   try {
     specialists();
+  } catch {}
+  try {
+    founder();
   } catch {}
 });
 

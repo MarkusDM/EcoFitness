@@ -18,7 +18,6 @@ function mainBanner() {
     },
     speed: 1000,
     autoHeight: true,
-
     breakpoints: {
       768: {
         autoplay: {
@@ -31,10 +30,8 @@ function mainBanner() {
     on: {
       slideChangeTransitionStart: function () {
         const activeSlide = this.slides[this.activeIndex].dataset.index;
-        thumbSlides.forEach((slide, index) => {
-          thumbSlides.forEach((item) => item.classList.remove('active'));
-          thumbSlides[activeSlide].classList.add('active');
-        });
+        thumbSlides.forEach((item) => item.classList.remove('active'));
+        thumbSlides[activeSlide].classList.add('active');
       }
     }
   });
