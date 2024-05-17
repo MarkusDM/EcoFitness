@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://api-maps.yandex.ru/v3/?apikey=4d7b8985-4ebf-4fde-8884-668550d59df1&lang=ru_RU"></script>
+    <title>Главная</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <include src="./components/_header.html"></include>
+      <include src="./components/_popup.html"></include>
+      <main>
+        <div class="contacts-main">
+          <div class="contacts-main__container container">
+            <div class="contacts-main__left">
+              <div class="contacts-main__title tl1">Контакты</div>
+              <div class="contacts-main__text txt20">
+                Вы можете связаться с нами в мессенджерах или заполнив форму связи ниже
+              </div>
+              <ul class="contacts-main__links">
+                <li class="contacts-main__link">
+                  <a href="#">
+                    <img src="./assets/images/icons/telegram.svg" alt="" />
+                  </a>
+                </li>
+                <li class="contacts-main__link">
+                  <a href="#">
+                    <img src="./assets/images/icons/watsapp.svg" alt="" />
+                  </a>
+                </li>
+                <li class="contacts-main__link">
+                  <a href="#">
+                    <img src="./assets/images/icons/viber.svg" alt="" />
+                  </a>
+                </li>
+              </ul>
+              <div class="contacts__info-top--row">
+                <div class="contacts__info-top--contact">
+                  <div class="tl4">Адрес</div>
+                  <div class="txt20">г. Москва, проспект Вернадского 94, к. 2</div>
+                </div>
+                <div class="contacts__info-top--contact">
+                  <div class="tl4">Режим работы</div>
+                  <div class="txt20"><span>Пн-пт 10:00 - 20:00</span> <span>Сб-вс 10:00 - 16:00</span></div>
+                </div>
+                <div class="contacts__info-top--contact">
+                  <div class="tl4">Телефон</div>
+                  <div class="txt20">+7 (903) 007-56-71</div>
+                </div>
+              </div>
+            </div>
+            <div class="contacts-main__right">
+              <div class="contacts-main__map">
+                <div id="map"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <include src="./components/_footer.html"></include>
+    </div>
+  </body>
+  <script>
+    initMap();
+
+    async function initMap() {
+      await ymaps3.ready;
+
+      const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker } = ymaps3;
+
+      const map = new YMap(document.getElementById('map'), {
+        location: {
+          center: [37.49869180759278, 55.665852486788616],
+          zoom: 13
+        }
+      });
+
+      map.addChild(new YMapDefaultSchemeLayer());
+      map.addChild(new YMapDefaultFeaturesLayer());
+
+      const markerElem = document.createElement('div');
+      const wrapper = document.createElement('div');
+      const logo = document.createElement('div');
+      const text = document.createElement('div');
+
+      logo.innerHTML = `
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12.4811 5.53308C12.4811 4.06185 11.2884 2.86914 9.81719 2.86914H4.70227C3.23105 2.86914 2.03833 4.06185 2.03833 5.53308C2.03833 5.92331 2.03833 8.35018 2.03833 8.74041C2.03833 10.2122 3.23156 11.4049 4.70279 11.4049H5.6558C6.04603 11.4049 8.47287 11.4049 8.8631 11.4049H9.81616C11.2879 11.4049 12.4806 10.2116 12.4806 8.74041C12.4806 8.35018 12.4806 5.92331 12.4806 5.53308H12.4811Z" fill="white"/>
+          <path d="M12.4811 16.7655C12.4811 15.2943 11.2884 14.1016 9.81719 14.1016H4.70227C3.23105 14.1016 2.03833 15.2943 2.03833 16.7655C2.03833 17.1557 2.03833 19.5826 2.03833 19.9728C2.03833 21.4446 3.23156 22.6373 4.70279 22.6373H5.6558C6.04603 22.6373 8.47287 22.6373 8.8631 22.6373H9.81616C11.2879 22.6373 12.4806 21.4441 12.4806 19.9728C12.4806 19.5826 12.4806 17.1557 12.4806 16.7655H12.4811Z" fill="white"/>
+          <path d="M21.7328 15.3829C21.9814 17.2517 20.9277 19.12 19.092 19.8218L15.4519 21.2138C15.2033 19.345 16.257 17.4767 18.0928 16.775L21.7328 15.3829ZM22.3921 14.1016L17.7497 15.877C15.1057 16.8882 13.7819 19.8511 14.7932 22.4952L19.4355 20.7197C22.0795 19.7085 23.4034 16.7456 22.3921 14.1016Z" fill="#6AA448"/>
+          <path d="M21.7328 4.15049C21.9814 6.01929 20.9277 7.88757 19.092 8.58935L15.4509 9.9819C15.3486 9.22347 15.4582 8.44983 15.7782 7.73337C16.2318 6.71793 17.0537 5.93957 18.0928 5.54252L21.7328 4.15049ZM22.3921 2.86914L17.7497 4.64458C15.1057 5.65581 13.7819 8.61872 14.7932 11.2627L19.4355 9.48729C22.0795 8.47606 23.4034 5.51315 22.3921 2.86914Z" fill="#6AA448"/>
+        </svg>
+      `;
+
+      text.textContent = 'Eco Fitness';
+
+      markerElem.classList.add('map__baloon');
+      wrapper.classList.add('map__baloon-wrapper');
+
+      markerElem.append(wrapper);
+      wrapper.append(logo);
+      wrapper.append(text);
+
+      map.addChild(new YMapMarker({ coordinates: [37.49869180759278, 55.665852486788616] }, markerElem));
+    }
+  </script>
+</html>
