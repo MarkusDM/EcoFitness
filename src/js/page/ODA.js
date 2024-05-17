@@ -19,3 +19,17 @@ const ODA_why__swiper = new Swiper('.ODA-why__swiper', {
         },
     },
 });
+
+const ODA_sign__swiper = new Swiper('.ODA-sign__swiper', {
+	slidesPerView: 1,
+	spaceBetween: rem(2),
+    navigation: {
+        nextEl: '.ODA-sign__swiper-nav--next',
+        prevEl: '.ODA-sign__swiper-nav--prev',
+    },
+    breakpoints: {
+        769: {
+            slidesPerView: 2,
+        },
+    },
+});
