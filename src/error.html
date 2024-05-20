@@ -4,61 +4,76 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://api-maps.yandex.ru/v3/?apikey=4d7b8985-4ebf-4fde-8884-668550d59df1&lang=ru_RU"></script>
-    <title>Главная</title>
+    <title>404</title>
   </head>
   <body>
     <div class="wrapper">
       <include src="./components/_header.html"></include>
       <include src="./components/_popup.html"></include>
       <main>
-        <div class="contacts-main">
-          <div class="contacts-main__container container">
-            <div class="contacts-main__left">
-              <div class="contacts-main__title tl1">Контакты</div>
-              <div class="contacts-main__text txt20">
-                Вы можете связаться с нами в мессенджерах или заполнив форму связи ниже
+        <section class="error">
+          <div class="container">
+            <div class="error__inner">
+              <div class="error__content-box">
+                <div class="error__title-box">
+                  <p class="error__title">404</p>
+                  <a href="#" type="submit" class="error__link desktop link-list">
+                    <p class="error__link-text link-list__text txt18">Вернуться на главную</p>
+                    <div class="error__link-svg-wrapper link-list__svg-wrapper">
+                      <div class="error__link-svg-box link-list__svg-box">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M13.19 2.28989C13.6405 5.62957 11.7312 8.96832 8.40479 10.2225L1.80896 12.7101C1.35847 9.37043 3.26779 6.03169 6.5942 4.77755L13.19 2.28989ZM14.3847 0L5.97263 3.17284C1.18165 4.98 -1.21709 10.2749 0.615291 15L9.02729 11.8272C13.8183 10.02 16.2171 4.72505 14.3847 0Z"
+                            fill="#6AA448"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="error__text-box">
+                  <p class="error__text-title txt20">Страница не найдена</p>
+                  <p class="error__text-desk txt20">
+                    Возможно страница устарела, была удалена, или был введен неверный адрес в адресной строке.
+                  </p>
+                  <a href="#" type="submit" class="error__link mobile link-list">
+                    <p class="error__link-text link-list__text txt18">Вернуться на главную</p>
+                    <div class="error__link-svg-wrapper link-list__svg-wrapper">
+                      <div class="error__link-svg-box link-list__svg-box">
+                        <svg
+                          width="15"
+                          height="15"
+                          viewBox="0 0 15 15"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M13.19 2.28989C13.6405 5.62957 11.7312 8.96832 8.40479 10.2225L1.80896 12.7101C1.35847 9.37043 3.26779 6.03169 6.5942 4.77755L13.19 2.28989ZM14.3847 0L5.97263 3.17284C1.18165 4.98 -1.21709 10.2749 0.615291 15L9.02729 11.8272C13.8183 10.02 16.2171 4.72505 14.3847 0Z"
+                            fill="#6AA448"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="error__logo-wrapper desktop">
+                  <div class="error__logo-box">
+                    <img src="./assets/images/logo.svg" alt="" />
+                  </div>
+                </div>
               </div>
-              <ul class="contacts-main__links">
-                <li class="contacts-main__link">
-                  <a href="#">
-                    <img src="./assets/images/icons/telegram.svg" alt="" />
-                  </a>
-                </li>
-                <li class="contacts-main__link">
-                  <a href="#">
-                    <img src="./assets/images/icons/watsapp.svg" alt="" />
-                  </a>
-                </li>
-                <li class="contacts-main__link">
-                  <a href="#">
-                    <img src="./assets/images/icons/viber.svg" alt="" />
-                  </a>
-                </li>
-              </ul>
-              <div class="contacts__info-top--row">
-                <div class="contacts__info-top--contact">
-                  <div class="tl4">Адрес</div>
-                  <div class="txt20">г. Москва, проспект Вернадского 94, к. 2</div>
-                </div>
-                <div class="contacts__info-top--contact">
-                  <div class="tl4">Режим работы</div>
-                  <div class="txt20"><span>Пн-пт 10:00 - 20:00</span> <span>Сб-вс 10:00 - 16:00</span></div>
-                </div>
-                <div class="contacts__info-top--contact">
-                  <div class="tl4">Телефон</div>
-                  <div class="txt20">+7 (903) 007-56-71</div>
-                </div>
-              </div>
-            </div>
-            <div class="contacts-main__right">
-              <div class="contacts-main__map">
-                <div id="map"></div>
+              <div class="error__img-box">
+                <img src="./assets/images/error.webp" alt="" />
               </div>
             </div>
           </div>
-        </div>
-        <include src="./components/_application-contacts.html"></include>
-        <include src="./components/_info-block.html"></include>
+        </section>
       </main>
       <include src="./components/_footer.html"></include>
     </div>
