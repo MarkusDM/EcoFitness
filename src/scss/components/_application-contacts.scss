@@ -1,0 +1,349 @@
+.application-contacts {
+  // .application-contacts__inner
+
+  &__inner {
+    position: relative;
+    width: 190.4rem;
+    height: 58rem;
+    border-radius: 3.2rem;
+    overflow: hidden;
+    padding: 6.4rem;
+    display: flex;
+    gap: 13.2rem;
+    @include small-tablet {
+      width: 100%;
+      height: auto;
+      background-color: $bg;
+      padding: 0;
+      flex-direction: column-reverse;
+      padding: 0;
+      gap: 0;
+    }
+  }
+
+  // .application-contacts__form-wrapper
+
+  &__form-wrapper {
+    width: 90.8rem;
+    backdrop-filter: blur(58px);
+    -webkit-backdrop-filter: blur(58px);
+    box-shadow: 0 1.5rem 5rem 0 rgba(127, 127, 127, 0.2);
+    background: rgba(231, 231, 231, 0.5);
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    border-radius: 32px;
+    padding: 5.2rem;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 5;
+    @include small-tablet {
+      width: 68.6rem;
+      margin: 4.8rem 3.6rem;
+      padding: 4rem;
+    }
+  }
+
+  // .application-contacts__form
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    @include small-tablet {
+      gap: 4.8rem;
+    }
+  }
+
+  // .application-contacts__form-title
+
+  &__form-title {
+  }
+
+  // .application-contacts__form-input-wrapper
+
+  &__form-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    @include small-tablet {
+      gap: 4.8rem;
+    }
+  }
+
+  // .application-contacts__form-input-box
+
+  &__form-input-box {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+    @include small-tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 4.8rem;
+    }
+  }
+
+  // .application-contacts__label
+
+  &__label {
+  }
+
+  // .application-contacts__form-input
+
+  &__form-input {
+  }
+
+  // .application-contacts__label--textarea
+
+  &__label--textarea {
+    grid-row: 1/4;
+    grid-column: 2/3;
+    & .form__input-wrapper {
+      height: 100%;
+    }
+
+    @include small-tablet {
+      & textarea {
+        border-radius: 2.4rem;
+      }
+      & .form__input-wrapper {
+        height: 20rem;
+      }
+    }
+  }
+
+  // .application-contacts__btn-box
+
+  &__btn-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12.6rem;
+
+    @include small-tablet {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4.8rem;
+    }
+  }
+
+  // .application-contacts__agreement-text
+
+  &__agreement-text {
+    & a {
+      text-decoration: underline;
+    }
+  }
+
+  // .application-contacts__link
+
+  &__link {
+  }
+
+  // .application-contacts__link-text
+
+  &__link-text {
+  }
+
+  // .application-contacts__link-svg-wrapper
+
+  &__link-svg-wrapper {
+  }
+
+  // .application-contacts__link-svg-box
+
+  &__link-svg-box {
+  }
+
+  // .application-contacts__content-box
+
+  &__content-box {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    @include small-tablet {
+      position: relative;
+      padding: 2.4rem 3.2rem 4.8rem;
+      width: 75rem;
+      height: 115.2rem;
+      border-radius: 3.2rem;
+      overflow: hidden;
+      flex-direction: column-reverse;
+    }
+  }
+
+  // .application-contacts__logo-bg-box
+
+  &__logo-bg-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // .application-contacts__text-wrapper
+
+  &__text-wrapper {
+    position: relative;
+    z-index: 5;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include small-tablet {
+    }
+  }
+
+  // .application-contacts__text-title-box
+
+  &__text-title-box {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    @include small-tablet {
+      gap: 9.2rem;
+    }
+  }
+
+  // .application-contacts__text-title
+
+  &__text-title {
+  }
+
+  // .application-contacts__text
+
+  &__text {
+    width: 41.1rem;
+    @include small-tablet {
+      width: 100%;
+    }
+  }
+
+  // .application-contacts__logo-block
+
+  &__logo-block {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    @include small-tablet {
+      flex-direction: row-reverse;
+    }
+  }
+
+  // .application-contacts__logo-wrapper
+
+  &__logo-wrapper {
+    position: relative;
+    z-index: 5;
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(231, 231, 231, 0.7);
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    @include small-tablet {
+      width: 9.6rem;
+      height: 9.6rem;
+      border: 0.2rem solid rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  // .application-contacts__logo-box
+
+  &__logo-box {
+    width: 2.4rem;
+    height: 2.4rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include small-tablet {
+      width: 4.8rem;
+      height: 4.8rem;
+    }
+  }
+
+  // .application-contacts__counter-box
+
+  &__counter-box {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+
+    @include small-tablet {
+      align-self: flex-start;
+    }
+  }
+
+  // .application-contacts__counter-img-wrapper
+
+  &__counter-img-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  // .application-contacts__counter-img-box
+
+  &__counter-img-box {
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include small-tablet {
+      width: 9.6rem;
+      height: 9.6rem;
+    }
+    &:not(:first-of-type) {
+      margin-left: -1rem;
+      @include small-tablet {
+        margin-left: -5.6rem;
+      }
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &--text {
+      background-color: $white;
+    }
+  }
+
+  // .application-contacts__counter-img-box--text
+
+  &__counter-img-box--text {
+  }
+
+  // .application-contacts__counter-text
+
+  &__counter-text {
+    font-weight: 400;
+    font-size: 1.4rem;
+    @include small-tablet {
+      font-size: 2.8rem;
+    }
+  }
+
+  // .application-contacts__counter-load-text
+
+  &__counter-load-text {
+    line-height: 140%;
+    color: $white;
+  }
+}

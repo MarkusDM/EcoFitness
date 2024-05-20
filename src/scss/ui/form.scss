@@ -39,19 +39,19 @@
 
 .input-group textarea {
   resize: none;
-  height: 14rem;
-  @include small-tablet {
-    height: 28rem;
-  }
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  &::-webkit-scrollbar-track {
-    display: none;
-  }
-  &::-webkit-scrollbar-thumb {
-    display: none;
-  }
+  height: 100%;
+  // @include small-tablet {
+  //   height: 28rem;
+  // }
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
+  // &::-webkit-scrollbar-track {
+  //   display: none;
+  // }
+  // &::-webkit-scrollbar-thumb {
+  //   display: none;
+  // }
 }
 
 ._form-error input,
