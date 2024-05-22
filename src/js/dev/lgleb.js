@@ -46,4 +46,15 @@ const Swipers = () => {
       nextEl: '.partners__swiper-next'
     }
   });
+
+  const ourSwiper = new Swiper('.our__swiper', {
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    spaceBetween: 8,
+
+    navigation: {
+      prevEl: '.our__swiper-btn--prev',
+      nextEl: '.our__swiper-btn--next'
+    }
+  });
 };
