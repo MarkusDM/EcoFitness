@@ -2,7 +2,6 @@ import Swiper from 'swiper/bundle';
 import 'swiper/css/bundle';
 import { gsap, ScrollTrigger, Draggable, MotionPathPlugin, ScrollToPlugin } from 'gsap/all';
 
-
 window.$ = window.jQuery = require('jquery');
 
 import { rem } from '../utils/constants';
@@ -14,7 +13,7 @@ import mainBanner from '../components/main-banner';
 import result from '../components/result';
 import specialists from '../components/specialists';
 import founder from '../components/founder';
-
+import workingWith from '../components/working-with';
 
 export const modules = {};
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   try {
     founder();
   } catch {}
+  try {
+    workingWith();
+  } catch {}
 });
-
-
