@@ -1,0 +1,249 @@
+.subscriptions {
+  background-color: $bg;
+  border-radius: 3.2rem;
+  padding: 6.4rem 0;
+
+  &__container {
+    padding: 0 6.4rem;
+  }
+
+  &__title {
+    margin-bottom: 11rem;
+  }
+
+  &__slider {
+    position: relative;
+  }
+
+  &__swiper {
+    &.swiper {
+      overflow: visible;
+    }
+
+    &-slide {
+      &.swiper-slide {
+        display: flex;
+        column-gap: 6rem;
+      }
+
+      padding: 5.4rem 11.6rem 5.4rem 5.4rem;
+      border-radius: 3.2rem;
+      background-color: $gray-cards;
+      box-shadow: 0px 12px 40px 0px #adadad29;
+    }
+
+    &-navigation {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      row-gap: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 5.2rem;
+      z-index: 10;
+
+      .swiper-button-prev,
+      .swiper-button-next {
+        position: static;
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      .swiper-button-prev {
+        transform: rotateZ(90deg);
+      }
+
+      .swiper-button-next {
+        transform: rotateZ(90deg);
+      }
+    }
+  }
+
+  &__slide {
+    &-left {
+      width: 76.2rem;
+
+      &--title {
+        margin-bottom: 1.2rem;
+      }
+
+      &--list {
+        margin-bottom: 3rem;
+      }
+
+      &--item {
+        position: relative;
+        padding-left: 1.8rem;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 0.8rem;
+          height: 0.8rem;
+          border-radius: 50%;
+          background-color: $dark-green;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 0.8rem;
+        }
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      column-gap: 2.7rem;
+      padding: 4rem;
+      background: rgba(231, 231, 231, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0px 15px 50px 0px rgba(127, 127, 127, 0.2);
+      border-radius: 3.2rem;
+
+      &--box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        & > div {
+          &:last-child {
+            display: flex;
+            align-items: center;
+            column-gap: 2.4rem;
+            padding-left: 2.1rem;
+            border: 1px solid $black;
+            border-radius: 3.2rem;
+
+            div {
+              width: 4.6rem;
+              height: 4.6rem;
+
+              svg {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &-right {
+      width: 78.6rem;
+      height: 45rem;
+      padding: 0.8rem;
+      background: rgba(231, 231, 231, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0px 15px 40px 0px rgba(173, 173, 173, 0.2);
+      border-radius: 3.2rem;
+    }
+
+    &-img {
+      border-radius: inherit;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  @media (max-width: 48em) {
+    padding: 4.8rem 0 17.6rem;
+
+    &__container {
+      padding: 0 3.2rem;
+    }
+
+    &__title {
+      margin-bottom: 11rem;
+    }
+
+    &__swiper {
+      &-slide {
+        &.swiper-slide {
+          flex-direction: column-reverse;
+        }
+
+        padding: 4rem;
+        border-radius: 3.2rem;
+      }
+
+      &-navigation {
+        flex-direction: row;
+        top: calc(100% + 4.8rem);
+        transform: translateY(0);
+        right: 50%;
+        transform: translateX(50%);
+        column-gap: 3.2rem;
+
+        .swiper-button-prev,
+        .swiper-button-next {
+          background: rgba(231, 231, 231, 0.7);
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          box-shadow: 0px 12px 40px 0px rgba(173, 173, 173, 0.16);
+        }
+      }
+    }
+
+    &__slide {
+      &-left {
+        width: auto;
+
+        &--title {
+          margin-bottom: 3.2rem;
+        }
+
+        &--list {
+          margin-bottom: 4.8rem;
+        }
+
+        &--item {
+          padding-left: 3.6rem;
+
+          &::before {
+            width: 1.6rem;
+            height: 1.6rem;
+            transform: translateY(0);
+            top: 0.8rem;
+          }
+        }
+      }
+
+      &-bottom {
+        flex-direction: column;
+        row-gap: 4.8rem;
+
+        &--box {
+          & > div {
+            &:last-child {
+              border-radius: 6.4rem;
+              column-gap: 4.8rem;
+              padding-left: 4.2rem;
+
+              div {
+                width: 7.6rem;
+                height: 7.6rem;
+              }
+            }
+          }
+        }
+      }
+
+      &-right {
+        width: auto;
+        height: 32rem;
+        border-radius: 2.4rem;
+        margin-bottom: 4.8rem;
+      }
+    }
+  }
+}
