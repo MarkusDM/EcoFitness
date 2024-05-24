@@ -1,0 +1,179 @@
+.installment-plan {
+  // .installment-plan__inner
+
+  &__inner {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+    -webkit-mask-image: url(./assets/images/main-banner-mask.svg);
+    mask-image: url(./assets/images/main-banner-mask.svg);
+    background-color: $bg;
+    display: flex;
+    padding: 12.7rem 6.4rem 6.4rem;
+    gap: 1.9rem;
+    @include small-tablet {
+      -webkit-mask-image: none;
+      mask-image: none;
+      flex-direction: column;
+      padding: 4.8rem 3.2rem;
+      gap: 6.4rem;
+    }
+  }
+
+  // .installment-plan__title-box
+
+  &__title-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6.8rem;
+    width: 87.4rem;
+    flex-shrink: 0;
+    @include small-tablet {
+      width: 100%;
+      gap: 4rem;
+    }
+  }
+
+  // .installment-plan__title
+
+  &__title {
+  }
+
+  // .installment-plan__btn-box
+
+  &__btn-box {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    @include small-tablet {
+      gap: 4rem;
+    }
+  }
+
+  // .installment-plan__text
+
+  &__text {
+    width: 39.2rem;
+    color: $gray;
+    @include small-tablet {
+      width: 100%;
+    }
+  }
+
+  // .installment-plan__link
+
+  &__link {
+  }
+
+  // .installment-plan__link-text
+
+  &__link-text {
+  }
+
+  // .installment-plan__link-svg-wrapper
+
+  &__link-svg-wrapper {
+  }
+
+  // .installment-plan__link-svg-box
+
+  &__link-svg-box {
+  }
+
+  // .installment-plan__content-box
+
+  &__content-box {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    @include small-tablet {
+      gap: 4rem;
+    }
+  }
+
+  // .installment-plan__content-title
+
+  &__content-title {
+  }
+
+  // .installment-plan__list
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include small-tablet {
+      gap: 3.2rem;
+    }
+  }
+
+  // .installment-plan__item
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 2.6rem;
+    padding: 3.8rem 1.6rem;
+    backdrop-filter: blur(58px);
+    -webkit-backdrop-filter: blur(58px);
+    box-shadow: 0 1.2rem 4rem 0 rgba(173, 173, 173, 0.16);
+    background: rgba(231, 231, 231, 0.5);
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    border-radius: 100rem;
+
+    @include small-tablet {
+      padding: 6.8rem 3.2rem;
+      gap: 5.8rem;
+      box-shadow: 0 2.4rem 8rem 0 rgba(173, 173, 173, 0.16);
+      border: 0.2rem solid rgba(255, 255, 255, 0.3);
+      border-radius: 200rem;
+    }
+  }
+
+  // .installment-plan__item-num-box
+
+  &__item-num-box {
+    width: 4.8rem;
+    height: 4.8rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      width: 5.4rem;
+      height: 9.2rem;
+      z-index: -1;
+      right: -2.6rem;
+      background: url(./assets/images/grade-oda-item.svg) no-repeat top/cover;
+      @include small-tablet {
+        width: 10rem;
+        height: 16.8rem;
+        right: -5.8rem;
+      }
+    }
+    @include small-tablet {
+      width: 8.4rem;
+      height: 8.4rem;
+    }
+  }
+
+  // .installment-plan__item-num
+
+  &__item-num {
+  }
+
+  // .installment-plan__item-text
+
+  &__item-text {
+    @include small-tablet {
+      line-height: 130%;
+       font-weight: 400;
+    }
+  }
+}

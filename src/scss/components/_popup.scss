@@ -19,12 +19,26 @@ body::before {
 .popup_show {
   z-index: 310 !important;
   visibility: visible !important;
-  overflow: auto;
+  // overflow: auto;
   pointer-events: auto;
+
+  &.popup {
+    @include small-tablet {
+      // overflow: auto;
+    }
+  }
 }
 .popup_show .popup__content {
   visibility: visible;
+}
+.popup_show .popup__content.popup__content--scale {
   transform: scale(1);
+}
+.popup_show .popup__content.popup__content--right {
+  transform: translateX(0);
+  @include small-tablet {
+    transform: scale(1);
+  }
 }
 
 // --------------------------------------------------------------------------
@@ -62,11 +76,21 @@ body::before {
     max-width: fit-content;
     border-radius: 4rem;
     visibility: hidden;
-    transform: scale(0);
+
     transition: transform 0.8s ease 0s;
     position: relative;
     .lock & {
       visibility: visible;
+    }
+
+    &--scale {
+      transform: scale(0);
+    }
+    &--right {
+      transform: translateX(150%);
+      @include small-tablet {
+        transform: scale(0);
+      }
     }
   }
 
@@ -192,5 +216,413 @@ body::before {
     }
     .popup__link-svg-box {
     }
+  }
+
+  &--right {
+    padding: 0.8rem;
+    @include small-tablet {
+      padding: 0;
+    }
+    & .popup__wrapper {
+      align-items: flex-end;
+      height: 100%;
+      @include small-tablet {
+        align-items: center;
+      }
+    }
+    & .popup__content {
+      flex-grow: 1;
+      display: flex;
+      width: 79.1rem;
+      height: 100%;
+      @include small-tablet {
+        max-width: none;
+        width: 100%;
+      }
+    }
+
+    & .popup__body {
+      padding: 0;
+      background-color: transparent;
+      width: 100%;
+    }
+    & .popup__body-close-btn {
+      top: 0;
+      right: 0;
+      border: 0.1rem solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      overflow: hidden;
+      width: 6rem;
+      height: 6rem;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      background: rgba(231, 231, 231, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & svg {
+        width: 1.8rem;
+        height: 1.8rem;
+
+        @include small-tablet {
+          width: 4rem;
+          height: 3.2rem;
+        }
+      }
+
+      @include small-tablet {
+        width: 9.6rem;
+        height: 9.6rem;
+        top: 1.6rem;
+        right: 3.2rem;
+      }
+    }
+    & .popup__body-content-box {
+      width: 100%;
+      width: 79.1rem;
+      padding: 7.2rem;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-image: url(./assets/images/popup-right-mask-bg.svg);
+      mask-image: url(./assets/images/popup-right-mask-bg.svg);
+      background-color: $bg;
+      display: flex;
+      flex-direction: column;
+      gap: 3.8rem;
+
+      height: 100%;
+      overflow: auto;
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar-thumb {
+        display: none;
+      }
+
+      @include small-tablet {
+        width: 100%;
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        border-radius: 6.4rem;
+        -webkit-mask-image: url(./assets/images/popup-right-mask-bg-mob.svg);
+        mask-image: url(./assets/images/popup-right-mask-bg-mob.svg);
+        padding: 16rem 3.2rem 4.8rem;
+      }
+    }
+
+    .popup__body-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 3.8rem;
+      @include small-tablet {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4rem;
+      }
+    }
+    .popup__body-title-img-box {
+      width: 30.2rem;
+      height: 24.4rem;
+      border-radius: 2.4rem;
+      overflow: hidden;
+      &--short {
+        width: 24.4rem;
+      }
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @include small-tablet {
+        border-radius: 1.6rem;
+        width: 67rem;
+        height: 45.2rem;
+      }
+    }
+    .popup__body-title-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      @include small-tablet {
+        gap: 2.4rem;
+      }
+    }
+    .popup__body-title {
+    }
+    .popup__body-info-bullet {
+      padding: 1.1rem 3.2rem;
+      border: 0.1rem solid rgba(255, 255, 255, 0.3);
+      border-radius: 3.2rem;
+      backdrop-filter: blur(58px);
+      -webkit-backdrop-filter: blur(58px);
+      box-shadow: 0 1.5rem 4rem 0 rgba(173, 173, 173, 0.2);
+      background: rgba(231, 231, 231, 0.7);
+      width: fit-content;
+
+      @include small-tablet {
+        padding: 2rem 4.8rem;
+        border-radius: 6.4rem;
+      }
+    }
+    .popup__body-info-bullet--green {
+      color: $dark-green;
+    }
+    .popup__body-info-box {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      width: 48.1rem;
+      &--long {
+        width: 100%;
+      }
+      @include small-tablet {
+        gap: 4rem;
+        width: 100%;
+      }
+    }
+    .popup__body-info-text-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      @include small-tablet {
+        gap: 2.4rem;
+      }
+    }
+    .popup__body-info-text-title {
+    }
+    .popup__body-info-text-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      @include small-tablet {
+        gap: 2.4rem;
+      }
+    }
+    .popup__body-info-text {
+      color: $gray;
+      &--black {
+        color: $black;
+      }
+    }
+    .popup__body-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      @include small-tablet {
+        gap: 1.6rem;
+      }
+    }
+    .popup__body-info-item {
+      color: $gray;
+      padding-left: 1.9rem;
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0.8rem;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background-color: $dark-green;
+        @include small-tablet {
+          top: 1.6rem;
+          width: 1.6rem;
+          height: 1.6rem;
+        }
+      }
+
+      @include small-tablet {
+        padding-left: 3.6rem;
+      }
+    }
+  }
+
+  &--skeleton {
+    .popup__wrapper {
+    }
+    .popup__content {
+      @include small-tablet {
+        max-width: none;
+      }
+    }
+    .popup__body {
+      padding: 0;
+      background-color: transparent;
+    }
+    .popup__body-close-btn {
+      top: 0;
+      right: 0;
+      border: 0.1rem solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      overflow: hidden;
+      width: 6rem;
+      height: 6rem;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      background: rgba(231, 231, 231, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      & svg {
+        width: 1.8rem;
+        height: 1.8rem;
+
+        @include small-tablet {
+          width: 4rem;
+          height: 3.2rem;
+        }
+      }
+
+      @include small-tablet {
+        width: 9.6rem;
+        height: 9.6rem;
+      }
+    }
+    .popup__body-content-box {
+      width: 100.6rem;
+      padding: 8rem;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-image: url(./assets/images/popup-scale-mask.svg);
+      mask-image: url(./assets/images/popup-scale-mask.svg);
+
+      display: flex;
+      flex-direction: column;
+      gap: 2.3rem;
+      background: $bg url(./assets/images/popup-skeleton-bg.webp) no-repeat top/cover;
+
+      &--long {
+        height: 64rem;
+        @include small-tablet {
+          height: 99rem;
+        }
+      }
+      @include small-tablet {
+        width: 100%;
+        -webkit-mask-size: 100% 100%;
+        mask-size: 100% 100%;
+        border-radius: 6.4rem;
+        -webkit-mask-image: url(./assets/images/popup-skeleton-mask-mob.svg);
+        mask-image: url(./assets/images/popup-skeleton-mask-mob.svg);
+        background: $bg url(./assets/images/popup-skeleton-bg-mob.webp) no-repeat top/cover;
+        padding: 8rem 4rem;
+      }
+    }
+    .popup__form {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      @include small-tablet {
+        gap: 4.8rem;
+      }
+    }
+    .popup__form-title-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      width: 54.6rem;
+      @include small-tablet {
+        width: 100%;
+        gap: 2.4rem;
+      }
+    }
+    .popup__form-title {
+      @include small-tablet {
+        font-size: 4.4rem;
+      }
+    }
+    .popup__form-desc {
+      color: $gray;
+      @include small-tablet {
+        font-size: 3.2rem;
+      }
+    }
+    .popup__form-input-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      @include small-tablet {
+        gap: 4.8rem;
+      }
+    }
+    .popup__form-input-box {
+      width: 43.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      @include small-tablet {
+        width: 100%;
+        gap: 4.8rem;
+      }
+    }
+    .popup__label {
+    }
+    .popup__form-input {
+    }
+    .popup__btn-box {
+      display: flex;
+      flex-direction: column;
+      gap: 2.4rem;
+      width: 49.4rem;
+      @include small-tablet {
+        width: 100%;
+        gap: 4.8rem;
+      }
+    }
+    .popup__agreement-text {
+      & a {
+        text-decoration: underline;
+      }
+    }
+    .popup__link {
+    }
+    .popup__link-text {
+    }
+    .popup__link-svg-wrapper {
+    }
+    .popup__link-svg-box {
+    }
+    .popup__body-btn-box {
+      display: flex;
+      align-items: center;
+      align-self: flex-end;
+      gap: 2.4rem;
+      @include small-tablet {
+        gap: 4.8rem;
+      }
+    }
+    .popup__body-btn {
+    }
+    .popup__body-btn-svg-box {
+      width: 2.4rem;
+      height: 2.4rem;
+      & svg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      @include small-tablet {
+        width: 4.8rem;
+        height: 4.8rem;
+      }
+    }
+
+    .popup__body-content-info {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      gap: 4rem;
+     & .popup__form-title-box {
+   
+          width: 100%;
+    
+        
+      }
+    }
+    
   }
 }
