@@ -14,6 +14,7 @@ import result from '../components/result';
 import specialists from '../components/specialists';
 import founder from '../components/founder';
 import workingWith from '../components/working-with';
+import allService from '../components/all-service';
 
 export const modules = {};
 document.addEventListener('DOMContentLoaded', () => {
@@ -42,5 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch {}
   try {
     workingWith();
+  } catch {}
+  try {
+    allService();
   } catch {}
 });
