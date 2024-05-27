@@ -15,6 +15,9 @@ import specialists from '../components/specialists';
 import founder from '../components/founder';
 import workingWith from '../components/working-with';
 import allService from '../components/all-service';
+import resultsBanner from '../components/results-banner';
+import ourClients from '../components/our-clients';
+import coaches from '../components/coaches';
 
 export const modules = {};
 document.addEventListener('DOMContentLoaded', () => {
@@ -46,5 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch {}
   try {
     allService();
+  } catch {}
+  try {
+    resultsBanner();
+  } catch {}
+  try {
+    ourClients();
+  } catch {}
+  try {
+    coaches();
   } catch {}
 });
