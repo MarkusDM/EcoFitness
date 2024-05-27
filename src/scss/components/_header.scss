@@ -13,7 +13,7 @@
         // }
         .header__main {
             opacity: 0;
-            top: 0.9rem;
+            top: 0.5rem;
         }
     }
     .container {
@@ -23,9 +23,9 @@
     &__main {
         position: absolute;
         right: 0.8rem;
-        top: 0.9rem;
+        top: 0.5rem;
         z-index: 10;
-        top: calc(0.9rem + 100%);
+        top: calc(0.5rem + 100%);
         transition: opacity 0.5s ease-in-out, top 0.5s ease-in-out;
         &-logo {
             display: none;
@@ -73,7 +73,7 @@
         &-header {
             position: absolute;
             right: 0.8rem;
-            top: 0.9rem;
+            top: 0.5rem;
             z-index: 10;
             cursor: pointer;
             width: fit-content;
@@ -250,6 +250,218 @@
         &--btn {
             height: fit-content;
             margin-top: auto;
+        }
+    }
+}
+
+@include small-tablet {
+    .header {
+        position: relative;
+        z-index: 10000;
+        width: 100%;
+        height: 10rem;
+        top: 0;
+        margin: 1.6rem 0;
+        &.active {
+            top: 0;
+            .header__main {
+                opacity: 0;
+                top: auto;
+            }
+            .header__container {
+                top: 0;
+            }
+        }
+        .container {
+            width: 100%;
+            padding: 0 3.2rem;
+        }
+    
+        &__main {
+            position: relative;
+            right: auto;
+            top: 0;
+            z-index: 10;
+            top: auto;
+            display: flex;
+            justify-content: space-between;
+
+            &-logo {
+                display: block;
+                width: 10rem;
+                height: 10rem;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            &-menu {
+                width: 10rem;
+                height: 10rem;
+                padding: 0 0;
+                border-radius: 50%;
+                justify-content: center;
+                svg {
+                    width: 4rem;
+                    height: 3rem;
+                }
+                span {
+                    display: none;
+                }
+            }
+        }
+    
+        &__container {
+            position: absolute;
+            top: calc(-100vh - 1.6rem);
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            // top: -100%;
+            transition: top 0.5s ease-in-out;
+    
+            &-header {
+                width: 10rem;
+                height: 10rem;
+                padding: 0 0;
+                border-radius: 50%;
+                justify-content: center;
+                top: 0;
+                right: 3.2rem;
+                svg {
+                    width: 4rem;
+                    height: 3rem;
+                }
+                span {
+                    display: none;
+                }
+            }
+        }
+    
+        &__blur {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(20px);
+            background: rgba(99, 99, 99, 0.1);
+        }
+        &__container {
+    
+        }
+        &__main {
+            // mask-repeat: no-repeat;
+            // mask-size: 100% 100%;
+            // mask-image: url(./assets/images/main-banner-mask.svg);
+            // background-color: #f9f9f9;
+            // align-items: flex-end;
+            // padding: 12.4rem 6.4rem 2rem;
+    
+            // width: 100%;
+            // height: 100%;
+            // overflow: auto;
+            // display: grid;
+            // grid-template-columns: 72.7rem 1fr;
+            // gap: 17rem;
+    
+            &--container {
+                mask-repeat: no-repeat;
+                mask-size: 100% 100%;
+                mask-image: url(./assets/images/main-banner-mask-header-mobile.svg);
+                background-color: #f9f9f9;
+                align-items: baseline;
+                padding: 16rem 3.2rem 6rem;
+        
+                overflow: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 0;
+            }
+    
+            &-left {
+                gap: 3.2rem;
+                width: 100%;
+                margin-bottom: 6.4rem;
+            }
+    
+            &-block {
+                height: 35.6rem;
+                padding: 3.2rem;
+                gap: 1.6rem;
+    
+                &--img {
+                    border-radius: 2.4rem;
+                    padding: 0.8rem;
+    
+                    img {
+                        border-radius: 1.6rem;
+                    }
+                }
+                &--title {
+                    color: #FFFFFF;
+                }
+                &:nth-child(1) {
+                    .header__main-block--title {
+                        margin-bottom: 0;
+                    }
+                    .header__main-block--btn {
+                        margin-left: 0;
+                    }
+                }
+                &:nth-child(2) {
+                    .header__main-block--title {
+                        margin-top: 0;
+                    }
+                }
+            }
+    
+            &-links {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                gap: 3.2rem;
+                height: auto;
+                margin-bottom: 10.4rem;
+            }
+    
+            &-grid {
+                display: grid;
+                grid-template-columns: auto;
+                justify-content: space-between;
+                margin-right: 0;
+                gap: 4.8rem;
+            }
+            &--contacts {
+                grid-row: 2;
+                gap: 4.8rem;
+            }
+            &-contact {
+                grid-row: 3;
+                grid-template-columns: 4.8rem 38.6rem;
+                gap: 3.2rem;
+    
+                svg {
+                    width: 4.8rem;
+                    height: 4.8rem;
+                }
+            }
+            &--socials {
+                gap: 3.2rem;
+            }
+            &-social {
+                width: 12rem;
+                height: 12rem;
+                display: flex;
+    
+                svg {
+                    width: 4.8rem;
+                    height: 4.8rem;
+                }
+            }
+            &--btn {
+                grid-row: 1;
+            }
         }
     }
 }
