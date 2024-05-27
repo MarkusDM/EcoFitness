@@ -1,0 +1,154 @@
+.patterns {
+  background-color: $white;
+  border-radius: 3.2rem;
+  padding: 7.2rem 0;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 21.2rem 0 7.2rem;
+  }
+
+  &__left {
+    width: 71.1rem;
+    height: 75rem;
+    border-radius: 2.4rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__right {
+    width: 72.9rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    margin-top: auto;
+    border-radius: 3.2rem;
+    padding: 5.2rem;
+    background: rgba(231, 231, 231, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 15px 50px 0px rgba(127, 127, 127, 0.2);
+
+    &-title {
+      margin-bottom: 1.6rem;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.8rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0.8rem;
+        left: 0;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background-color: $dark-green;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__text {
+    color: $gray;
+
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+
+    &:last-of-type {
+      margin-top: 3rem;
+    }
+
+    span {
+      display: inline-block;
+      border-bottom: 1px solid $dark-green;
+      padding-bottom: 0.1rem;
+    }
+  }
+
+  @media (max-width: 48em) {
+    padding: 4.8rem 0;
+
+    &__container {
+      flex-direction: column;
+      padding: 0 3.2rem;
+    }
+
+    &__title {
+      margin-bottom: 3.2rem;
+    }
+
+    &__right,
+    &__left {
+      width: auto;
+    }
+
+    &__text {
+      &:not(:last-of-type) {
+        margin-bottom: 2rem;
+      }
+
+      &:last-of-type {
+        margin-top: 0.4rem;
+        margin-bottom: 8rem;
+      }
+    }
+
+    &__img {
+      width: 100%;
+      height: 77.6rem;
+      padding: 0.8rem;
+      border-radius: 2.4rem;
+      background: rgba(231, 231, 231, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0px 15px 40px 0px rgba(173, 173, 173, 0.2);
+      margin-bottom: 4rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1.6rem;
+      }
+    }
+
+    &__list {
+      border-radius: 2.4rem;
+      padding: 4rem;
+
+      &--title {
+        margin-bottom: 3.2rem;
+      }
+
+      li {
+        padding-left: 3.6rem;
+
+        &::before {
+          width: 1.6rem;
+          height: 1.6rem;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 2.4rem;
+        }
+      }
+    }
+  }
+}
