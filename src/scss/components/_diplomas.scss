@@ -1,0 +1,115 @@
+.diplomas {
+    .container {
+        border-radius: 3.2rem;
+        background-color: #f9f9f9;
+        padding: 6.4rem;
+        display: grid;
+        grid-template-columns: 87.8rem 1fr;
+        gap: 5.8rem;
+        align-items: center;
+    }
+    &__left {
+
+    }
+    &__title {
+        margin-bottom: 3.2rem;
+    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    &__items {
+        box-shadow: 0 15px 50px 0 rgba(127, 127, 127, 0.2);
+        background: rgba(231, 231, 231, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 3.2rem;
+        padding: 3.2rem;
+    }
+    &__swiper {
+        overflow: hidden;
+        width: 84rem;
+        height: 59.9rem;
+        margin-bottom: 3.2rem;
+        border-radius: 3.2rem;
+    }
+    &__pagination {
+        display: flex;
+        gap: 1.2rem;
+        width: fit-content;
+        margin: 0 auto;
+    }
+    &__swiper-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &.swiper-button-disabled {
+            opacity: 0.5;
+        }
+    }
+    &__slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 3.2rem;
+        padding: 0.8rem;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 15px 40px 0 rgba(173, 173, 173, 0.2);
+        background: rgba(231, 231, 231, 0.7);
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 2.4rem;
+        }
+    }
+}
+
+@media (max-width: 48em) {
+    .diplomas {
+        .container {
+            border-radius: 3.2rem;
+            background-color: #f9f9f9;
+            padding: 4.8rem 3.2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            align-items: initial;
+        }
+        &__title {
+            margin-bottom: 4rem;
+        }
+        &__list {
+            gap: 3.2rem;
+        }
+        &__items {
+            border-radius: 2.4rem;
+            padding: 4rem;
+            font-weight: 500;
+            line-height: 130%;
+        }
+        &__swiper {
+            overflow: hidden;
+            width: 100%;
+            height: 49rem;
+            margin-bottom: 4rem;
+            border-radius: 6.4rem;
+        }
+        &__pagination {
+            gap: 3.2rem;
+        }
+        &__slide {
+            border-radius: 6.4rem;
+            padding: 0.8rem;
+
+            img {
+                border-radius: 4.8rem;
+            }
+        }
+    }
+}
