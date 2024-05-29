@@ -51,14 +51,14 @@
     height: 57.9rem;
     background: url(./assets/images/human-bg.svg) no-repeat top / cover;
     @media (min-width: 48em) {
-      transform: rotate(240deg)!important;
-      transition: unset!important;
+      transform: rotate(240deg) !important;
+      transition: unset !important;
     }
     @include small-tablet {
       height: 89rem;
       width: 89rem;
-    //   height: 95rem;
-    //   width: 95rem;
+      //   height: 95rem;
+      //   width: 95rem;
     }
   }
 
@@ -77,13 +77,11 @@
     gap: 1.6rem;
     position: absolute;
     @media (min-width: 48em) {
-      transform: rotate(120deg)!important;
-      transition: unset!important;
+      transform: rotate(120deg) !important;
+      transition: unset !important;
     }
 
-
     @include small-tablet {
-
       padding: 4rem;
       border-radius: 2.4rem;
       gap: 3.2rem;
@@ -137,8 +135,8 @@
 
   &__text {
     @include small-tablet {
-        font-weight: 400;
-      }
+      font-weight: 400;
+    }
   }
 
   // .advantages__list
