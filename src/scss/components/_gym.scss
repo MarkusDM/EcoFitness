@@ -13,6 +13,12 @@
     margin-bottom: 2.2rem;
   }
 
+  &__swiper {
+    &.swiper {
+      display: none;
+    }
+  }
+
   &__left {
     position: relative;
     width: 84.2rem;
@@ -103,6 +109,10 @@
 
     &__swiper {
       width: 100%;
+
+      &.swiper {
+        display: block;
+      }
     }
 
     &__left {
