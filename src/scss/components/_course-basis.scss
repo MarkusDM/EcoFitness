@@ -1,0 +1,146 @@
+.course-basis {
+  // .course-basis__inner
+
+  &__inner {
+    width: 190.4rem;
+    height: fit-content;
+    min-height: 73.8rem;
+    position: relative;
+    border-radius: 3.2rem;
+    overflow: hidden;
+    padding: 6.4rem;
+    display: flex;
+    align-items: center;
+
+    @include small-tablet {
+      width: 100%;
+      height: auto;
+      background-color: $bg;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  // .course-basis__content-box
+
+  &__content-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 3rem;
+    width: 65.8rem;
+    position: relative;
+    z-index: 5;
+
+    @include small-tablet {
+      width: 100%;
+      gap: 3.2rem;
+      padding: 2.4rem 3.2rem 6.4rem;
+    }
+  }
+
+  // .course-basis__title
+
+  &__title {
+    color: $white;
+    @include small-tablet {
+      color: $black;
+    }
+  }
+
+  // .course-basis__list
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+  }
+
+  // .course-basis__item
+
+  &__item {
+    @include small-tablet {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+  }
+
+  // .course-basis__item-svg-wrapper
+
+  &__item-svg-wrapper {
+    display: none;
+    @include small-tablet {
+      width: 9.6rem;
+      height: 9.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.1rem solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      -webkit-backdrop-filter: blur(58px);
+      backdrop-filter: blur(58px);
+      box-shadow: 0 1.2rem 4rem 0 rgba(173, 173, 173, 0.16);
+      background: rgba(231, 231, 231, 0.5);
+    }
+  }
+
+  // .course-basis__item-svg-box
+
+  &__item-svg-box {
+    @include small-tablet {
+      width: 4.8rem;
+      height: 4.8rem;
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  // .course-basis__item-text
+
+  &__item-text {
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    border-radius: 100rem;
+    padding: 1.4rem 2.4rem;
+    -webkit-backdrop-filter: blur(58px);
+    backdrop-filter: blur(58px);
+    box-shadow: 0 1.2rem 4rem 0 rgba(173, 173, 173, 0.16);
+    background: rgba(231, 231, 231, 0.5);
+    width: fit-content;
+    font-weight: 400;
+    @include small-tablet {
+      font-size: 3.2rem;
+      padding: 2.4rem 4rem;
+      border-radius: 200rem;
+      width: 100%;
+    }
+  }
+
+  // .course-basis__img-box
+
+  &__img-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    & img,
+    & video,
+    & iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @include small-tablet {
+      position: static;
+      width: 75rem;
+      height: 42.4rem;
+      border-radius: 3.2rem;
+      overflow: hidden;
+    }
+  }
+}
