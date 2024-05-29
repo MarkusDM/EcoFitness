@@ -18,6 +18,14 @@ import allService from '../components/all-service';
 import resultsBanner from '../components/results-banner';
 import ourClients from '../components/our-clients';
 import coaches from '../components/coaches';
+import advantages from '../components/_advantages';
+import courseBanner from '../components/_course-banner';
+import wrongWays from '../components/_wrong-ways';
+import courseHelp from '../components/_course-help';
+import buyCourse from '../components/_buy-course';
+import geography from '../components/_geography';
+import founderBanner from '../components/founder-banner';
+import suitableCourse from '../components/suitable-course';
 
 export const modules = {};
 document.addEventListener('DOMContentLoaded', () => {
@@ -58,5 +66,29 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch {}
   try {
     coaches();
+  } catch {}
+  try {
+    advantages();
+  } catch {}
+  try {
+    courseBanner();
+  } catch {}
+  try {
+    wrongWays();
+  } catch {}
+  try {
+    courseHelp();
+  } catch {}
+  try {
+    buyCourse();
+  } catch {}
+  try {
+    geography();
+  } catch {}
+  try {
+    founderBanner();
+  } catch {}
+  try {
+    suitableCourse();
   } catch {}
 });
