@@ -1,0 +1,151 @@
+.release {
+  background-color: $white;
+  border-radius: 3.2rem;
+  padding: 6.4rem 0;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 29rem 0 6.4rem;
+  }
+
+  &__left {
+    width: 72.7rem;
+    height: 76.6rem;
+    padding: 0.8rem;
+    background: rgba(231, 231, 231, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 15px 40px 0px rgba(173, 173, 173, 0.2);
+    border-radius: 3.2rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 2.4rem;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    width: 65.1rem;
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__text {
+    color: $gray;
+
+    &:not(:last-of-type) {
+      margin-bottom: 3rem;
+    }
+  }
+
+  &__list {
+    margin-bottom: 3rem;
+
+    &-title {
+      margin-bottom: 1.6rem;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.8rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0.8rem;
+        left: 0;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background-color: $dark-green;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 0.8rem;
+      }
+    }
+  }
+
+  &__mark {
+    max-width: 55.7rem;
+    padding: 3.2rem;
+    border-radius: 3.2rem;
+    margin-top: auto;
+    background: rgba(231, 231, 231, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 15px 40px 0px rgba(173, 173, 173, 0.2);
+  }
+
+  @media (max-width: 48em) {
+    padding: 4.8rem 0;
+
+    &__container {
+      flex-direction: column-reverse;
+      padding: 0 3.2rem;
+    }
+
+    &__left,
+    &__right {
+      width: auto;
+    }
+
+    &__left {
+      width: 100%;
+      height: 68.6rem;
+      border-radius: 2.4rem;
+
+      img {
+        border-radius: 1.6rem;
+      }
+    }
+
+    &__right {
+      margin-bottom: 8rem;
+    }
+
+    &__title {
+      margin-bottom: 3.2rem;
+    }
+
+    &__text {
+      &:not(:last-of-type) {
+        margin-bottom: 2.4rem;
+      }
+
+      &:last-of-type {
+        margin-bottom: 3.2rem;
+      }
+    }
+
+    &__list {
+      &-title {
+        margin-bottom: 1.6rem;
+      }
+
+      li {
+        padding-left: 3.6rem;
+
+        &::before {
+          width: 1.6rem;
+          height: 1.6rem;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 2.4rem;
+        }
+      }
+    }
+
+    &__mark {
+      max-width: none;
+      border-radius: 2.4rem;
+      padding: 4rem;
+    }
+  }
+}

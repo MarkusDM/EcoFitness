@@ -119,4 +119,62 @@ const Swipers = () => {
       nextEl: '.subscriptions__swiper-btn--next'
     }
   });
+
+  const ourAdvantagesSwiper = new Swiper('.our-advantages__swiper', {
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    allowTouchMove: true,
+    spaceBetween: 16,
+
+    breakpoints: {
+      768: {
+        slidesPerView: 4,
+        allowTouchMove: false,
+        spaceBetween: 20
+      }
+    },
+
+    navigation: {
+      prevEl: '.our-advantages__swiper-btn--prev',
+      nextEl: '.our-advantages__swiper-btn--next'
+    }
+  });
+
+  if (document.querySelector('.gym') && window.screen.width <= 768) {
+    const container = document.querySelector('.gym__left-circle.mobile'),
+      circles = container.querySelectorAll('.gym__left-circle--target');
+
+    const gymSwiper = new Swiper('.gym__swiper', {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      effect: 'fade',
+      allowTouchMove: false,
+      fadeEffect: {
+        crossFade: true
+      }
+    });
+
+    container.addEventListener('click', (e) => {
+      let target = e.target,
+        activeIndex = 0;
+
+      if (
+        target.tagName == 'path' &&
+        target.previousElementSibling.classList.contains('gym__left-circle--target')
+      ) {
+        target = target.previousElementSibling;
+      }
+
+      if (target.classList.contains('gym__left-circle--target')) {
+        circles.forEach((circle, i) => {
+          circle == target && (activeIndex = i);
+
+          circle.classList.remove('active');
+        });
+
+        target.classList.add('active');
+        gymSwiper.slideTo(activeIndex);
+      }
+    });
+  }
 };

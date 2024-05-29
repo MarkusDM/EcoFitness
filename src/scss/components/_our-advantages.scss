@@ -1,0 +1,113 @@
+.our-advantages {
+  background-color: $white;
+  border-radius: 3.2rem;
+  padding: 6.4rem 0;
+
+  &__container {
+    padding: 0 6.4rem;
+  }
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__swiper {
+    &-slide {
+      &.swiper-slide {
+        position: relative;
+        max-width: 42.9rem;
+        min-height: 44.7rem;
+        padding: 1.6rem;
+      }
+
+      &--background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // transform: translate(-4rem, -3rem);
+        z-index: -1;
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &__number {
+    position: absolute;
+    top: 1.4rem;
+    left: 1.6rem;
+  }
+
+  &__img {
+    width: 100%;
+    height: 27rem;
+    margin-bottom: 3.6rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  @media (max-width: 48em) {
+    padding: 4.8rem 0;
+
+    &__container {
+      padding: 0 3.2rem;
+    }
+
+    &__title {
+      margin-bottom: 4rem;
+    }
+
+    &__swiper {
+      &-slide {
+        &.swiper-slide {
+          max-width: 100%;
+          min-height: 75.4rem;
+        }
+
+        &--background {
+          transform: translate(0rem, 0rem);
+
+          svg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+
+      &-navigation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 3.2rem;
+
+        & > div {
+          position: static;
+          transform: rotateZ(-90deg);
+        }
+      }
+    }
+
+    &__img {
+      width: 100%;
+      height: 54rem;
+      clip-path: path(
+        'M8.79297 55C4.37469 55 0.792969 58.5817 0.792969 63V262C0.792969 266.418 4.3747 270 8.79298 270H319C323.418 270 327 266.418 327 262V8C327 3.58172 323.418 0 319 0H76.1237C71.7054 0 68.1237 3.58172 68.1237 8V47C68.1237 51.4183 64.542 55 60.1237 55H8.79297Z'
+      );
+      margin-bottom: 4.8rem;
+    }
+
+    &__number {
+      top: 2.8rem;
+      left: 2.4rem;
+    }
+  }
+}
