@@ -1,0 +1,293 @@
+.buy-course {
+  // .buy-course__inner
+
+  &__inner {
+    background-color: $bg;
+    padding: 6.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    border-radius: 3.2rem;
+
+    @include small-tablet {
+      gap: 4rem;
+      padding: 4.8rem 3.2rem;
+    }
+  }
+
+  // .buy-course__title
+
+  &__title {
+  }
+
+  // .buy-course__swiper-box
+
+  &__swiper-box {
+    width: 100%;
+    position: relative;
+    @include small-tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+  }
+
+  // .buy-course__swiper
+
+  &__swiper {
+    width: 100%;
+    overflow: visible !important;
+  }
+
+  // .buy-course__swiper-wrapper
+
+  &__swiper-wrapper {
+  }
+
+  // .buy-course__swiper-slide
+
+  &__swiper-slide {
+    height: auto !important;
+  }
+
+  // .buy-course__slide-inner
+
+  &__slide-inner {
+    padding: 4rem;
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    border-radius: 3.2rem;
+    background: rgba(231, 231, 231, 0.7);
+    box-shadow: 0 1.5rem 5rem 0 rgba(127, 127, 127, 0.2);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 2.4rem;
+    @include small-tablet {
+      gap: 4.8rem;
+      border-radius: 2.4rem;
+      border: 0.2rem solid rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  // .buy-course__title-wrapper
+
+  &__title-wrapper {
+    position: relative;
+    width: 100%;
+    height: 17rem;
+    border-radius: 2.4rem;
+    overflow: hidden;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3.2rem;
+    @include small-tablet {
+      height: 19.6rem;
+      padding: 2.4rem;
+    }
+  }
+
+  // .buy-course__img-box
+
+  &__img-box {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // .buy-course__title-box
+
+  &__title-box {
+    position: relative;
+    src: 5;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    @include small-tablet {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  // .buy-course__billet-box
+
+  &__billet-box {
+    position: relative;
+    src: 5;
+    padding: 0.8rem 1.8rem;
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    border-radius: 1.2rem;
+    -webkit-backdrop-filter: blur(58px);
+    backdrop-filter: blur(58px);
+    box-shadow: 0 1.5rem 4rem 0 rgba(173, 173, 173, 0.2);
+    background: rgba(231, 231, 231, 0.7);
+    @include small-tablet {
+      padding: 0.8rem 1.6rem;
+    }
+  }
+
+  // .buy-course__billet-text
+
+  &__billet-text {
+    font-weight: 500;
+    font-size: 1.4rem;
+    color: $black;
+    line-height: 140%;
+    padding-bottom: 0.2rem;
+    border-bottom: 0.1rem solid $dark-green;
+    @include small-tablet {
+      padding-bottom: 0.4rem;
+      font-size: 2rem;
+      border-bottom: 0.2rem solid $dark-green;
+    }
+  }
+
+  // .buy-course__price
+
+  &__price {
+    position: relative;
+    src: 5;
+  }
+
+  // .buy-course__list-box
+
+  &__list-box {
+    flex-grow: 1;
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    border-radius: 3.2rem;
+    padding: 4rem;
+    -webkit-backdrop-filter: blur(58px);
+    backdrop-filter: blur(58px);
+    box-shadow: 0 1.5rem 5rem 0 rgba(127, 127, 127, 0.2);
+    background: rgba(231, 231, 231, 0.7);
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    @include small-tablet {
+    }
+  }
+
+  // .buy-course__list-title
+
+  &__list-title {
+  }
+
+  // .buy-course__list
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    @include small-tablet {
+      gap: 1.6rem;
+    }
+  }
+
+  // .buy-course__item
+
+  &__item {
+    padding-left: 1.9rem;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.8rem;
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background-color: $dark-green;
+      @include small-tablet {
+        top: 1.6rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        font-size: 2.8rem;
+      }
+    }
+
+    @include small-tablet {
+      padding-left: 3.6rem;
+    }
+  }
+
+  // .buy-course__btn-box
+
+  &__btn-box {
+    border: 0.1rem solid rgba(255, 255, 255, 0.3);
+    border-radius: 3.2rem;
+    padding: 4rem;
+    -webkit-backdrop-filter: blur(58px);
+    backdrop-filter: blur(58px);
+    box-shadow: 0 1.5rem 5rem 0 rgba(127, 127, 127, 0.2);
+    background: rgba(231, 231, 231, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include small-tablet {
+      flex-direction: column;
+      gap: 4.8rem;
+    }
+  }
+
+  // .buy-course__link
+
+  &__link {
+  }
+
+  // .buy-course__link-text
+
+  &__link-text {
+  }
+
+  // .buy-course__link-svg-wrapper
+
+  &__link-svg-wrapper {
+  }
+
+  // .buy-course__link-svg-box
+
+  &__link-svg-box {
+  }
+
+  // .buy-course__swiper-btn-box
+
+  &__swiper-btn-box {
+    @include small-tablet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      gap: 3.2rem;
+    }
+  }
+
+  &__swiper-btn--prev,
+  &__swiper-btn--next {
+    @include small-tablet {
+      position: static !important;
+    }
+  }
+
+  // .buy-course__swiper-btn
+
+  &__swiper-btn {
+  }
+
+  // .buy-course__swiper-btn--prev
+
+  &__swiper-btn--prev {
+  }
+
+  // .buy-course__swiper-btn--next
+
+  &__swiper-btn--next {
+  }
+}
