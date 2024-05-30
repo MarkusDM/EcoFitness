@@ -90,6 +90,7 @@
             max-width: 19.3rem;
             color: $gray;
             font-weight: 400;
+            text-align: right;
 
             span {
               display: block;
@@ -259,6 +260,7 @@
           div {
             &:last-child {
               max-width: 38.6rem;
+              text-align: left;
 
               span {
                 text-align: left;

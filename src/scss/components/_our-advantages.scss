@@ -67,10 +67,12 @@
     }
 
     &__swiper {
+      margin-bottom: 4.8rem;
+
       &-slide {
         &.swiper-slide {
           max-width: 100%;
-          min-height: 75.4rem;
+          min-height: 79.6rem;
         }
 
         &--background {

@@ -1,12 +1,32 @@
 .map {
   &__baloon {
+    // background-image: url(../../assets/images/map-baloon-background.svg);
+    // background-position: 0 0;
+    // background-size: 100% 100%;
+    // background-repeat: no-repeat;
+    // filter: drop-shadow(0px 15px 40px 0px rgba(133, 133, 133, 0.4));
+    // border: 1px solid #FFFFFF0D;
+    position: relative;
     min-width: 32.5rem;
-    min-height: 9.5rem;
-    background-image: url(../../assets/images/map-baloon-background.svg);
-    background-position: 0 0;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    filter: drop-shadow(0px 15px 40px 0px rgba(133, 133, 133, 0.4));
+    background: rgba(231, 231, 231, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0px 15px 40px 0px rgba(133, 133, 133, 0.4);
+    border-radius: 3.2rem;
+    backdrop-filter: blur(1.1rem);
+
+    &::after {
+      position: absolute;
+      content: '';
+      bottom: calc(-100% + 1.4rem);
+      left: 13.9rem;
+      width: 0px;
+      height: 0px;
+      border-style: solid;
+      border-width: 4.8rem 2.4rem 0 2.4rem;
+      border-color: rgba(231, 231, 231, 0.8) transparent transparent transparent;
+      transform: rotate(0deg);
+      z-index: 10;
+    }
 
     &-wrapper {
       display: flex;
@@ -45,10 +65,17 @@
 
     @media (max-width: 48em) {
       min-width: 51.4rem;
-      min-height: 16.8rem;
+      border-radius: 6.4rem;
+
+      
+    &::after {
+      bottom: calc(-100% + 5.4rem);
+      left: 22.2rem;
+      border-width: 7.4rem 3.7rem 0 3.7rem;
+    }
 
       &-wrapper {
-        padding-top: 1.8rem;
+        padding: 1.8rem 0;
         column-gap: 2.4rem;
 
         div {
