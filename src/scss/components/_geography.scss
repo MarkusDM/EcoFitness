@@ -4,7 +4,7 @@
   &__inner {
     background-color: $bg;
     // background-color: #f7f7f7;
-    background-color: #FDFDFD;
+    background-color: #fdfdfd;
 
     padding: 6.4rem;
     display: flex;
@@ -86,12 +86,14 @@
   // .geography__swiper
 
   &__swiper {
-    padding-top: 8.4rem !important;
+    padding-top: 9.4rem !important;
     // overflow: visible !important;
     height: 54.5rem;
+    width: 100% !important;
 
     @include small-tablet {
       height: 138rem;
+      height: 111rem;
     }
   }
 
@@ -137,6 +139,7 @@
     transition: background 0.8s;
     @include small-tablet {
       min-height: 129rem;
+      min-height: 97.4rem;
       flex-direction: column;
       padding: 4rem;
     }
@@ -251,7 +254,6 @@
     -webkit-box-orient: vertical;
 
     @include small-tablet {
-      -webkit-line-clamp: 13;
     }
   }
 
@@ -292,6 +294,10 @@
     background-color: transparent;
     &.swiper-button-disabled {
       // transition: opacity 0.3s, border 0.3s;
+    }
+    @include small-tablet {
+      border: 0.1rem solid rgba(255, 255, 255, 0.6);;
+      background-color: rgba(231, 231, 231, 0.7);
     }
   }
   // .geography__swiper-btn

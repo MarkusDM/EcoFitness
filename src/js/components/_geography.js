@@ -5,11 +5,11 @@ import { rem } from '../utils/constants';
 function geography() {
   const partnersSwiper = new Swiper('.geography__swiper', {
     slidesPerView: 1,
-    direction: 'vertical',
+    // direction: 'vertical',
     slidesPerGroup: 1,
     effect: 'creative',
     speed: 800,
-
+    allowTouchMove: false,
     creativeEffect: {
       limitProgress: 1,
       perspective: true,
