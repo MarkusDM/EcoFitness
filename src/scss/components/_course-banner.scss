@@ -4,8 +4,10 @@
   &__inner {
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
-    -webkit-mask-size: 100% 100%;
-    mask-size: 100% 100%;
+    // -webkit-mask-size: 100% 100%;
+    // mask-size: 100% 100%;
+    -webkit-mask-size: cover;
+    mask-size: cover;
     -webkit-mask-image: url(./assets/images/main-banner-mask.svg);
     mask-image: url(./assets/images/main-banner-mask.svg);
     background-color: $bg;
@@ -17,6 +19,7 @@
     padding: 11rem 6.4rem 6.4rem;
     position: relative;
     width: 190.4rem;
+    width: 189rem;
     height: 93.8rem;
 
     @include small-tablet {
