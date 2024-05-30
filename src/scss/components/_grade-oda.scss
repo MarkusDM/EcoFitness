@@ -52,6 +52,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     @include small-tablet {
       width: 6.4rem;
       height: 6.4rem;

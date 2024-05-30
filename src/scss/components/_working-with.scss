@@ -345,6 +345,7 @@
     @include small-tablet {
       width: 68.6rem;
       margin-left: 0 !important;
+      overflow: visible!important;;
     }
   }
 
@@ -369,12 +370,12 @@
       & .working-with__main-slide-inner {
         box-shadow: 0rem 0rem 2rem 0 rgba(80, 158, 47, 0.4);
         @include small-tablet {
-          box-shadow: none;
+          box-shadow: 0rem 0rem 8rem 0 rgba(80, 158, 47, 0.3);
         }
       }
       & .working-with__main-slide-img-box {
         @include small-tablet {
-          box-shadow: 0rem 0rem 2rem 0 rgba(80, 158, 47, 0.4);
+          // box-shadow: 0rem 0rem 2rem 0 rgba(80, 158, 47, 0.4);
         }
       }
 
@@ -411,7 +412,7 @@
       width: 33.6rem !important;
       height: 35.6rem !important;
       margin: 0;
-      box-shadow: none;
+      // box-shadow: none;
     }
   }
 

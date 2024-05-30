@@ -68,6 +68,7 @@ function workingWith() {
     const swiperMain = new Swiper(swiper, {
       slidesPerView: 2,
       slidesPerGroup: 1,
+      spaceBetween: rem(3),
       // effect: 'fade',
       // fadeEffect: {
       //   crossFade: true
@@ -78,6 +79,7 @@ function workingWith() {
       // loop: true,
       breakpoints: {
         768: {
+          spaceBetween: 0,
           slidesPerView: 3,
           slidesPerGroup: 3
         }
