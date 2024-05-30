@@ -2,6 +2,7 @@
     .container {
         mask-repeat: no-repeat;
         mask-size: 100% 100%;
+        mask-size: cover;
         mask-image: url(./assets/images/main-banner-mask.svg);
         background-color: #f9f9f9;
         color: #ffffff;
