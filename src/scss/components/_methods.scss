@@ -4,8 +4,10 @@
   background-size: 100% 100%;
   background-position: 0 0;
   background-repeat: no-repeat;
-  max-width: 192rem;
-  margin: 0 auto;
+  max-width: 189rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3.2rem;
 
   &__container {
     display: flex;
