@@ -50,6 +50,13 @@
                 font-weight: 500;
                 font-size: 1.6rem;
             }
+            &:hover {
+                color: #FFFFFF;
+
+                svg rect{
+                    fill: #FFFFFF;
+                }
+            }
         }
     }
 
@@ -93,6 +100,13 @@
             span {
                 font-weight: 500;
                 font-size: 1.6rem;
+            }
+            &:hover {
+                color: #FFFFFF;
+
+                svg rect{
+                    fill: #FFFFFF;
+                }
             }
         }
     }
@@ -202,6 +216,30 @@
             gap: 2rem;
             height: 30.5rem;
             margin-bottom: 16rem;
+        }
+        &-link {
+            position: relative;
+            width: fit-content;
+            transition: color 0.5s;
+
+            &::after {
+                content: '';
+                display: block;
+                width: 0%;
+                height: 2px;
+                background: #509E2F;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transition: width 0.5s;
+            }
+            &:hover {
+                color: #509E2F;
+
+                &::after {
+                    width: 100%;
+                }
+            }
         }
 
         &-grid {
@@ -330,7 +368,7 @@
                 padding: 0 0;
                 border-radius: 50%;
                 justify-content: center;
-                top: 0;
+                top: 1.6rem;
                 right: 3.2rem;
                 svg {
                     width: 4rem;
@@ -373,6 +411,7 @@
                 mask-image: initial;
                 mask-image: url(./assets/images/main-banner-mask-header-mobile.svg);
                 background: #f9f9f9;
+                background: red;
                 align-items: baseline;
                 padding: 16rem 3.2rem 6rem;
                 border-radius: 6.4rem;
