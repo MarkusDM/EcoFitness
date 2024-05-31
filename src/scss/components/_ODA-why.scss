@@ -4,6 +4,7 @@
     border-radius: 3.2rem;
 }
 .ODA-why {
+    position: relative;
     &__title {
         margin-bottom: 3rem;
     }
@@ -69,6 +70,53 @@
     }
     &__swiper-nav {
         display: none;
+        gap: 3.2rem;
+        margin: auto;
+        width: fit-content;
+
+        &--prev, &--next {
+            width: 5.4rem;
+            height: 5.4rem;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #FFF;
+            box-shadow: 0 12px 40px 0 rgba(173, 173, 173, 0.16);
+            cursor: pointer;
+
+            svg {
+                width: 2.2rem;
+                height: 2rem;
+            }
+
+            &.swiper-button-disabled {
+                svg {
+                    opacity: 0.5;
+                }
+            }
+        }
+    }
+    &__swiper {
+        overflow: hidden;
+    }
+
+    &.ODA-why--about {
+        .ODA-why__swiper-nav {
+            display: block;
+        }
+        .ODA-why__swiper-nav--prev {
+            position: absolute;
+            left: 4rem;
+            bottom: 20.8rem;
+            z-index: 2;
+        }
+        .ODA-why__swiper-nav--next {
+            position: absolute;
+            right: 4rem;
+            bottom: 20.8rem;
+            z-index: 2;
+        }
     }
 }
 @include small-tablet {
@@ -144,6 +192,17 @@
                         opacity: 0.5;
                     }
                 }
+            }
+        }
+        &.ODA-why--about {
+            .ODA-why__swiper-nav {
+                display: flex;
+            }
+            .ODA-why__swiper-nav--prev {
+                position: static;
+            }
+            .ODA-why__swiper-nav--next {
+                position: static;
             }
         }
     }

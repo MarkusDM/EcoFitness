@@ -136,6 +136,8 @@
             display: grid;
             grid-template-columns: 72.7rem 1fr;
             gap: 17rem;
+            position: relative;
+            z-index: 1;
         }
 
         &-left {
@@ -269,7 +271,7 @@
                 top: auto;
             }
             .header__container {
-                top: 0;
+                top: -1.6rem;
             }
         }
         .container {
@@ -368,10 +370,12 @@
             &--container {
                 mask-repeat: no-repeat;
                 mask-size: 100% 100%;
+                mask-image: initial;
                 mask-image: url(./assets/images/main-banner-mask-header-mobile.svg);
-                background-color: #f9f9f9;
+                background: #f9f9f9;
                 align-items: baseline;
                 padding: 16rem 3.2rem 6rem;
+                border-radius: 6.4rem;
         
                 overflow: auto;
                 display: flex;
@@ -463,5 +467,37 @@
                 grid-row: 1;
             }
         }
+
+        // &__border {
+        //     position: absolute;
+        //     right: 0;
+        //     top: 0;
+        //     border-radius: 0 0 0 8.5rem;
+        //     width: 15rem;
+        //     height: 15rem;
+        //     background: rgb(236 236 236);
+        //     z-index: 2;
+
+        //     &::after {
+        //         content: "";
+        //         position: absolute;
+        //         right: 0;
+        //         top: -4rem;
+        //         width: 6rem;
+        //         height: 6rem;
+        //         border-radius: 0 5rem 0 0;
+        //         background: #f9f9f9;
+        //     }
+        //     &::before {
+        //         content: "";
+        //         position: absolute;
+        //         right: 0;
+        //         bottom: 0rem;
+        //         width: 6rem;
+        //         height: 6rem;
+        //         border-radius: 0 5rem 0 0;
+        //         background: #f9f9f9;
+        //     }
+        // }
     }
 }
