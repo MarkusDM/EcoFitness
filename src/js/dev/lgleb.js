@@ -1,5 +1,9 @@
 import Swiper from 'swiper';
 
+import { rem } from '../utils/constants';
+
+import '../components/_search';
+
 window.addEventListener('DOMContentLoaded', () => {
   Swipers();
 });
@@ -177,4 +181,55 @@ const Swipers = () => {
       }
     });
   }
+
+  const newSlider = new Swiper('.news__swiper', {
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    spaceBetween: 16,
+
+    grid: {
+      rows: 3,
+      fill: 'row'
+    },
+
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 20
+      }
+    },
+
+    pagination: {
+      el: '.news__swiper-pagination',
+      clickable: true,
+      renderBullet: function (index, className) {
+        return '<span class="news__swiper-pagination-num ' + className + '">' + (index + 1) + '</span>';
+      }
+    },
+
+    navigation: {
+      nextEl: '.news__swiper-btn--next',
+      prevEl: '.news__swiper-btn--prev'
+    }
+  });
+
+  const moreNewsSlider = new Swiper('.more-news__swiper', {
+    slidesPerView: 1,
+    slidesPerGroup: 1,
+    spaceBetween: 16,
+
+    breakpoints: {
+      768: {
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        spaceBetween: 20
+      }
+    },
+
+    navigation: {
+      prevEl: window.screen.width > 768 ? '.more-news__swiper-prev' : '.more-news__swiper-btn--prev',
+      nextEl: window.screen.width > 768 ? '.more-news__swiper-next' : '.more-news__swiper-btn--next'
+    }
+  });
 };
