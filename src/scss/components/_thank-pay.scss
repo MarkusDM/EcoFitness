@@ -1,0 +1,138 @@
+.thank-pay {
+    position: relative;
+  
+    &__inner {
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        // -webkit-mask-size: 100% 100%;
+        // mask-size: 100% 100%;
+        -webkit-mask-size: cover;
+        mask-size: cover;
+        -webkit-mask-image: url(../assets/images/main-banner-mask.svg);
+        mask-image: url(../assets/images/main-banner-mask.svg);
+        background-color: $bg;
+        padding-top: 13.5rem;
+        padding-bottom: 46.6rem;
+        padding-left: 7rem;
+        padding-right: 7rem;
+        &::after {
+            position: absolute;
+            content:'';
+            height: 237.1rem;
+            width: 100%;
+            background-image: url(../assets/images/course-pay/bons.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            top: 1rem;
+            z-index: 1;
+            left: 0;
+            @media (max-width: 48em) {
+                background-image: url(../assets/images/course-pay/smallbonds.png);
+                top: 50rem;
+                
+            }
+        }
+        @include small-tablet {
+          -webkit-mask-image: none;
+          mask-image: none;
+          padding: 4.8rem 3.2rem 0;
+          flex-direction: column;
+          display: flex;
+          align-items: flex-start;
+          border-radius: 3.2rem;
+          gap: 6.4rem;
+          padding-bottom: 44rem;
+        }
+    }
+
+    &__title {
+        margin-bottom: 3rem;
+        @media (max-width: 48em) {
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__text {
+        margin-bottom: 3rem;
+        font-size: 2rem;
+        font-weight: 500;
+        line-height: 2.42rem;
+        text-align: left;
+        width: 64.7rem;
+        p {
+            margin-bottom: 1rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+        @media (max-width: 48em) {
+            width: 100%;
+            font-size: 3.2rem;
+            line-height: 4rem;
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__btns {
+        display: flex;
+        position: relative;
+        z-index: 2;
+        @media (max-width: 48em) { 
+            flex-direction: column;
+        }
+    }
+
+    &__link:first-child {
+        margin-right: 3.2rem;
+        @media (max-width: 48em) {
+            margin-right: 0;
+            margin-bottom: 4rem;
+        }
+    }
+
+    &__content {
+        
+       
+    }
+
+    &__socials {
+        display: flex;
+        position: absolute;
+        z-index: 3;
+        bottom: 6.4rem;
+        right: 6.4rem;
+        @media (max-width: 48em) {
+            right: 3.2rem;
+            bottom: 4.8rem;
+        }
+        a {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            box-shadow: 0px 15px 40px 0px #ADADAD33;
+            background-color: rgba(231,231,231, 0.7);
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            margin-right: 1.6rem;
+            @media (max-width: 48em) {
+                width: 8.8rem;
+                height: 8.8rem;
+                margin-right: 3.2rem;
+            }
+            svg {
+                width: 2.4rem;
+                height: 2.4rem;
+                @media (max-width: 48em) {
+                    width: 4rem;
+                    height: 4rem;
+                }
+            }
+        }
+
+        a:last-child {
+            margin-right: 0;
+        }
+    }
+}
