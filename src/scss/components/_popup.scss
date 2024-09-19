@@ -51,7 +51,7 @@ body::before {
   right: 0;
   padding: 3.2rem;
   visibility: hidden;
-  transition: visibility 0.8s ease 0s;
+  transition: visibility .8s ease 0s;
   z-index: 300;
   ._loaded & {
     display: block;

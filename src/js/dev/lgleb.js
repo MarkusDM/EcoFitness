@@ -9,47 +9,53 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 const Swipers = () => {
-  const partnersSwiper = new Swiper('.partners__swiper', {
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    effect: 'creative',
-
-    creativeEffect: {
-      limitProgress: 1,
-      perspective: true,
-      progressMultiplier: 1,
-
-      next: {
-        translate: [0, '-11rem', 0],
-        scale: 0.9,
-        shadow: true
+ 
+    const partnersSwiper = new Swiper('.partners__swiper', {
+      slidesPerView: 1,
+      slidesPerGroup: 1,
+      effect: 'creative',
+      speed: 1000,  // Глобальная скорость перелистывания
+      creativeEffect: {
+        limitProgress: 1,
+        perspective: true,
+        progressMultiplier: 1,
+  
+        next: {
+          translate: [0, '-11rem', 0],
+          scale: 0.9,
+          shadow: true
+        },
+  
+        prev: {
+          translate: [0, '-11rem', 0],  // Сделаем translate таким же, как у next
+          scale: 0.9,                  // Сделаем scale таким же, как у next
+          opacity: 1                   // Устанавливаем opacity для единообразного эффекта
+        }
       },
-
-      prev: {
-        translate: [0, '200%', 0],
-        // rotate: [10, 0, 0],
-        opacity: 0
-      }
-    },
-
-    breakpoints: {
-      768: {
-        creativeEffect: {
-          limitProgress: 3,
-
-          next: {
-            translate: [0, '-11rem', 0],
-            scale: 0.9
+  
+      breakpoints: {
+        768: {
+          creativeEffect: {
+            limitProgress: 3,
+            next: {
+              translate: [0, '-11rem', 0],
+              scale: 0.9
+            },
+            prev: {
+              translate: [0, '-11rem', 0],  // Синхронизируем с next
+              scale: 0.9                    // Синхронизируем с next
+            }
           }
         }
+      },
+  
+      navigation: {
+        prevEl: '.partners__swiper-prev',
+        nextEl: '.partners__swiper-next'
       }
-    },
+    });
 
-    navigation: {
-      prevEl: '.partners__swiper-prev',
-      nextEl: '.partners__swiper-next'
-    }
-  });
+  
 
   const ourSwiper = new Swiper('.our__swiper', {
     slidesPerView: 1,

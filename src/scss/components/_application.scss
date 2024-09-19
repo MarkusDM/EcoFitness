@@ -191,7 +191,9 @@
       border-radius: 3.2rem;
       overflow: hidden;
       padding: 3.2rem;
-      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: initial;
+      flex-direction: row-reverse;
     }
   }
 

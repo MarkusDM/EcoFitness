@@ -20,7 +20,7 @@
   &__img-wrapper-block {
     width: 59.7rem;
     flex-shrink: 0;
-    display: flex;
+   display: none;
     flex-direction: column;
     justify-content: space-between;
     gap: 1.2rem;
@@ -29,6 +29,24 @@
       width: 100%;
       gap: 2.4rem;
     }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__img-wrapper-block.active {
+    display: block;
+  }
+
+  &__img-wrapper-block-video {
+    display: none;
+  }
+
+  &__img-wrapper-block-video.active {
+    display: block;
   }
 
   // .working-with__img-wrapper
@@ -597,6 +615,11 @@
 
   &__link-svg-box {
   }
+
+
+  // &__img-wrapper-block-video-v {
+  //   width: 50rem;
+  // }
 
   .svg-point {
     opacity: 0;

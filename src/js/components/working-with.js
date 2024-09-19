@@ -6,178 +6,179 @@ function workingWith() {
   const mainSwipers = document.querySelectorAll('.working-with__main-swiper');
   const tabBtns = document.querySelectorAll('.working-with__tab');
   const contentBox = document.querySelectorAll('.working-with__swiper-wrapper-box');
-  const svg = document.querySelectorAll('.svg-point');
-  const imgBox = document.querySelectorAll('.working-with__img-box');
-  const btnRotate = document.querySelector('.working-with__img-rotate-btn');
+  const videoWrapperBlocks = document.querySelectorAll('.working-with__img-wrapper-block'); // Родители видео блоков
 
-  function swiperBtnClick(swiper, swiperTextBox) {
-    let activeSlideIndex = swiper.querySelector(`.swiper-slide-active`).dataset.index;
-    let svgItem = document.getElementById(swiper.querySelector(`.swiper-slide-active`).dataset.svg);
-    svg.forEach((item) => {
-      item.classList.remove('active');
-    });
-    imgBox.forEach((item) => {
-      item.classList.remove('active');
-    });
-    svgItem.classList.add('active');
-    svgItem.closest('.working-with__img-box').classList.add('active');
-    swiperTextBox.slideTo(activeSlideIndex);
+  // Функция для сброса активных классов у всех слайдов
+  function resetSlideActiveClass(swiperContainer) {
+    const slides = swiperContainer.querySelectorAll('.swiper-slide');
+    slides.forEach((slide) => slide.classList.remove('active'));
   }
 
-  tabBtns.forEach((item) => {
-    item.addEventListener('click', () => {
-      let name = item.dataset.tab;
-      let content = document.querySelector(`.working-with__swiper-wrapper-box[data-content='${name}']`);
-      let slides = content.querySelectorAll(`.working-with__main-swiper-slide`);
-      let activeSlide = content.querySelector(`.swiper-slide-active`);
+  // Функция для добавления класса active к первому слайду при загрузке
+  function activateFirstSlide(swiperContainer) {
+    const firstSlide = swiperContainer.querySelector('.swiper-slide');
+    if (firstSlide) {
+      firstSlide.classList.add('active');
+    }
+  }
 
-      tabBtns.forEach((item) => {
-        item.classList.remove('active');
-      });
-      contentBox.forEach((item) => {
-        item.classList.remove('active');
-      });
-      item.classList.add('active');
-      content.classList.add('active');
+  // Функция для сброса активных классов у всех видео-блоков
+  function resetAllVideoBlocks() {
+    const allVideoBlocks = document.querySelectorAll('.working-with__img-wrapper-block-video');
+    allVideoBlocks.forEach((block) => block.classList.remove('active'));
+  }
 
-      let svgTitle = activeSlide.dataset.svg;
-      let svgItem = document.getElementById(svgTitle);
+  // Функция для обновления активного видео-блока в зависимости от активного слайда и активного таба
+  function updateVideoBlock(activeIndex, activeTab) {
+    resetAllVideoBlocks(); // Сбрасываем все активные видео-блоки
 
-      svg.forEach((item) => {
-        item.classList.remove('active');
-      });
-      imgBox.forEach((item) => {
-        item.classList.remove('active');
-      });
-      svgItem.closest('.working-with__img-box').classList.add('active');
-      svgItem.classList.add('active');
+    // Находим активный блок с видео по активному табу
+    const activeVideoWrapper = document.querySelector(`.working-with__img-wrapper-block[data-block="${activeTab}"]`);
+    if (!activeVideoWrapper) return;
 
-      slides.forEach((item) => {
-        item.classList.remove('active');
-      });
-      activeSlide.classList.add('active');
-    });
-  });
+    const videoBlocks = activeVideoWrapper.querySelectorAll('.working-with__img-wrapper-block-video');
+    videoBlocks.forEach((block) => block.classList.remove('active'));
 
-  mainSwipers.forEach((swiper, i) => {
-    const slides = swiper.querySelectorAll('.swiper-slide');
-    const btnPrev = swiper.parentElement.querySelector('.working-with__swiper-btn--prev');
-    const btnNext = swiper.parentElement.querySelector('.working-with__swiper-btn--next');
-    const textSwiper = swiper.parentElement.nextElementSibling;
+    const activeVideoBlock = videoBlocks[activeIndex];
+    if (activeVideoBlock) {
+      activeVideoBlock.classList.add('active');
+    }
+  }
 
-    const swiperMain = new Swiper(swiper, {
+  // Функция для обновления видимых блоков в зависимости от выбранного таба
+  function updateContent(activeTab) {
+    // Деактивируем все блоки контента
+    contentBox.forEach((box) => box.classList.remove('active'));
+    // Активируем соответствующий контент-блок
+    const targetContentBox = document.querySelector(`.working-with__swiper-wrapper-box[data-content="${activeTab}"]`);
+    if (targetContentBox) {
+      targetContentBox.classList.add('active');
+    }
+
+    // Деактивируем все блоки с видео
+    videoWrapperBlocks.forEach((wrapper) => wrapper.classList.remove('active'));
+    // Активируем соответствующий блок с видео
+    const targetVideoWrapperBlock = document.querySelector(`.working-with__img-wrapper-block[data-block="${activeTab}"]`);
+    if (targetVideoWrapperBlock) {
+      targetVideoWrapperBlock.classList.add('active');
+    }
+
+    // Сбрасываем все видео-блоки и активируем первый блок
+    resetAllVideoBlocks(); // Сбрасываем все активные блоки
+    const firstVideoBlock = targetVideoWrapperBlock.querySelector('.working-with__img-wrapper-block-video');
+    if (firstVideoBlock) {
+      firstVideoBlock.classList.add('active');
+    }
+  }
+
+  // Инициализация Swiper для каждого слайдера
+  mainSwipers.forEach((swiperContainer, i) => {
+    const slides = swiperContainer.querySelectorAll('.swiper-slide');
+    const btnPrev = swiperContainer.parentElement.querySelector('.working-with__swiper-btn--prev');
+    const btnNext = swiperContainer.parentElement.querySelector('.working-with__swiper-btn--next');
+    
+    // Находим соответствующий textSwiper внутри родительского блока
+    const textSwiper = swiperContainer.closest('.working-with__swiper-wrapper-box').querySelector('.working-with__text-swiper');
+
+    // Проверяем, что Swiper был найден
+    if (!textSwiper) {
+      console.error('Swiper-контейнер не найден');
+      return;
+    }
+
+    // Инициализация основного слайдера Swiper
+    const swiperMain = new Swiper(swiperContainer, {
       slidesPerView: 2,
       slidesPerGroup: 1,
       spaceBetween: rem(3),
-      // effect: 'fade',
-      // fadeEffect: {
-      //   crossFade: true
-      // },
-      // spaceBetween: rem(2),
-      allowTouchMove: false,
       speed: 1000,
-      // loop: true,
       breakpoints: {
         768: {
-          spaceBetween: 0,
           slidesPerView: 3,
-          slidesPerGroup: 3
-        }
+          slidesPerGroup: 3,
+          spaceBetween: 30,
+        },
       },
       navigation: {
         nextEl: btnNext,
-        prevEl: btnPrev
+        prevEl: btnPrev,
       },
       on: {
         slideChange: function () {
-          slides.forEach((slide) => slide.classList.remove('active'));
-          const activeSlide = this.slides[this.activeIndex];
-          activeSlide.classList.add('active');
-        }
-      }
+          const activeIndex = this.activeIndex;
+          const activeTab = document.querySelector('.working-with__tab.active').dataset.tab;
+
+          // Сбрасываем классы active на всех слайдах и добавляем активный
+          resetSlideActiveClass(swiperContainer);
+          slides[activeIndex].classList.add('active');
+
+          updateVideoBlock(activeIndex, activeTab); // Обновляем активный видео-блок для текущего таба
+        },
+      },
     });
 
-    const swiperTextBox = new Swiper(textSwiper, {
+    // Инициализация текстового Swiper
+    const textSwiperInstance = new Swiper(textSwiper, {
       slidesPerView: 1,
       autoHeight: true,
       effect: 'fade',
       allowTouchMove: false,
-      // loop: true,
       fadeEffect: {
-        crossFade: true
+        crossFade: true,
       },
       speed: 1000,
-      breakpoints: {
-        768: {}
-      }
-      // navigation: {
-      //   nextEl: swiper.parentElement.querySelector('.working-with__swiper-btn--next'),
-      //   prevEl: swiper.parentElement.querySelector('.working-with__swiper-btn--prev')
-      // }
     });
 
-    btnNext.addEventListener('click', () => {
-      swiperBtnClick(swiper, swiperTextBox);
-    });
-    btnPrev.addEventListener('click', () => {
-      swiperBtnClick(swiper, swiperTextBox);
-    });
-
-    slides.forEach((item, i) => {
-      item.dataset.index = i;
-      item.addEventListener('click', (e) => {
-        let index = item.dataset.index;
-        let svgTitle = item.dataset.svg;
-
-        let svgItem = document.getElementById(svgTitle);
-
-        svg.forEach((item) => {
-          item.classList.remove('active');
-        });
-        imgBox.forEach((item) => {
-          item.classList.remove('active');
-        });
-        svgItem.closest('.working-with__img-box').classList.add('active');
-        svgItem.classList.add('active');
-
-        // с разворотом
-        // if (svgItem.closest('.working-with__img-box--back')) {
-        //   document.querySelector('.working-with__img-wrapper').classList.add('active');
-        // } else {
-        //   document.querySelector('.working-with__img-wrapper').classList.remove('active');
-        // }
-
-        console.log(index);
+    // Добавление кликов на слайды
+    slides.forEach((slide, index) => {
+      slide.addEventListener('click', () => {
         swiperMain.slideTo(index);
-        swiperTextBox.slideTo(index);
+        textSwiperInstance.slideTo(index);
+        const activeTab = document.querySelector('.working-with__tab.active').dataset.tab;
 
-        slides.forEach((item) => {
-          item.classList.remove('active');
-        });
-        item.classList.add('active');
+        // Сбрасываем классы active на всех слайдах и добавляем активный
+        resetSlideActiveClass(swiperContainer);
+        slide.classList.add('active');
+
+        updateVideoBlock(index, activeTab); // Обновляем активный видео-блок при клике для текущего таба
       });
     });
 
-    // swiperMain.controller.control = swiperTextBox;
+    // Активируем первый слайд при инициализации
+    activateFirstSlide(swiperContainer);
   });
 
-  btnRotate.addEventListener('click', () => {
-    imgBox.forEach((item) => {
-      item.classList.toggle('active');
+  // Включаем переключение табов
+  tabBtns.forEach((tabBtn) => {
+    tabBtn.addEventListener('click', () => {
+      const targetTab = tabBtn.dataset.tab;
+
+      // Деактивируем все табы
+      tabBtns.forEach(btn => btn.classList.remove('active'));
+
+      // Активируем выбранный таб
+      tabBtn.classList.add('active');
+
+      // Обновляем соответствующий контент и видео блоки
+      updateContent(targetTab);
+
+      // Активируем первый слайд для нового таба
+      const activeSwiper = document.querySelector('.working-with__main-swiper');
+      if (activeSwiper) {
+        resetSlideActiveClass(activeSwiper);
+        activateFirstSlide(activeSwiper);
+      }
     });
   });
 
-  const firstTab = document.querySelector(`.working-with__swiper-wrapper-box[data-content='structure']`);
-  const firstTabBtn = document.querySelector(`.working-with__tab[data-tab='structure']`);
-  const firstSlide = mainSwipers[0].querySelector(`.swiper-slide-active`);
-  const firstSvg = document.getElementById(mainSwipers[0].querySelector(`.swiper-slide-active`).dataset.svg);
-  const firstImg = firstSvg.closest('.working-with__img-box');
-
-  firstTab.classList.add('active');
-  firstTabBtn.classList.add('active');
-  firstSlide.classList.add('active');
-  firstSvg.classList.add('active');
-  firstImg.classList.add('active');
+  // По умолчанию активируем первый видео-блок и первый контент-блок
+  updateContent('structure');
+  updateVideoBlock(0, 'structure');
 }
+
+// Убедимся, что DOM полностью загружен перед инициализацией
+document.addEventListener('DOMContentLoaded', () => {
+  workingWith();
+});
 
 export default workingWith;
