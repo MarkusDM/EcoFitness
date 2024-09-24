@@ -51,6 +51,13 @@ function workingWith() {
     staticBlocks.forEach((block) => block.classList.remove('active'));
   }
 
+  // Проверка на наличие активного блока с видео
+  function hasActiveVideoBlock(activeTab) {
+    const activeVideoWrapper = document.querySelector(`.working-with__img-wrapper-block[data-block="${activeTab}"]`);
+    const activeVideoBlock = activeVideoWrapper.querySelector('.working-with__img-wrapper-block-video.active');
+    return !!activeVideoBlock; // Возвращаем true, если есть активный видеоблок
+  }
+
   // Функция для обновления видимых блоков в зависимости от выбранного таба
   function updateContent(activeTab) {
     // Деактивируем все блоки контента
@@ -73,8 +80,13 @@ function workingWith() {
     // Возвращаем класс active для блока static при переключении вкладок
     resetStaticBlocks(); // Сбрасываем классы active со всех статических блоков
     const staticBlock = targetVideoWrapperBlock.querySelector('.working-with__img-wrapper-block-static');
-    if (staticBlock) {
-      staticBlock.classList.add('active'); // Только статический блок получает класс active
+
+    // Если активен видеоблок, то удаляем класс active у блока static
+    if (hasActiveVideoBlock(activeTab)) {
+      staticBlock.classList.remove('active');
+    } else {
+      // Если видеоблока нет, добавляем класс active к блоку static
+      staticBlock.classList.add('active');
     }
 
     // Сбрасываем все активные классы слайдов при переключении вкладки
@@ -202,3 +214,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 export default workingWith;
+

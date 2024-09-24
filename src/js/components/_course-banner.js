@@ -9,7 +9,7 @@ function courseBanner() {
       effect: 'fade',
       allowTouchMove: false,
       autoplay: {
-        delay: 120000,
+        delay: 3000,
         disableOnInteraction: false
       },
       loop: true,
@@ -21,7 +21,7 @@ function courseBanner() {
       breakpoints: {
         768: {
           autoplay: {
-            delay: 5000,
+            delay: 3000,
             disableOnInteraction: false
           }
         }
