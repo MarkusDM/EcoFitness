@@ -617,6 +617,15 @@
   }
 
 
+  &__img-wrapper-block-static {
+    display: none;
+  }
+
+  &__img-wrapper-block-static.active {
+    display: block;
+  }
+
+
   // &__img-wrapper-block-video-v {
   //   width: 50rem;
   // }

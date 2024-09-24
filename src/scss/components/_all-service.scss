@@ -9,9 +9,10 @@
       flex-direction: column;
       padding: 4.8rem 3.2rem 0;
       border-radius: 3.2rem;
-      gap: 6.4rem;
+      margin-bottom: 0;
     }
   }
+
 
   // .all-service__content
 
@@ -25,13 +26,17 @@
     align-items: center;
     @include small-tablet {
       padding: 0;
-      gap: 4.8rem;
+     margin-bottom: 4.8rem;
+     gap: initial;
     }
   }
 
   // .all-service__title-box
 
   &__title-box {
+    @include small-tablet {
+      margin-bottom: 4.8rem;
+    }
   }
 
   // .all-service__title

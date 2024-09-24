@@ -7,25 +7,24 @@ function workingWith() {
   const tabBtns = document.querySelectorAll('.working-with__tab');
   const contentBox = document.querySelectorAll('.working-with__swiper-wrapper-box');
   const videoWrapperBlocks = document.querySelectorAll('.working-with__img-wrapper-block'); // Родители видео блоков
+  const staticBlocks = document.querySelectorAll('.working-with__img-wrapper-block-static');
 
   // Функция для сброса активных классов у всех слайдов
-  function resetSlideActiveClass(swiperContainer) {
-    const slides = swiperContainer.querySelectorAll('.swiper-slide');
-    slides.forEach((slide) => slide.classList.remove('active'));
-  }
-
-  // Функция для добавления класса active к первому слайду при загрузке
-  function activateFirstSlide(swiperContainer) {
-    const firstSlide = swiperContainer.querySelector('.swiper-slide');
-    if (firstSlide) {
-      firstSlide.classList.add('active');
-    }
+  function resetSlideActiveClass() {
+    mainSwipers.forEach((swiperContainer) => {
+      const slides = swiperContainer.querySelectorAll('.swiper-slide');
+      slides.forEach((slide) => slide.classList.remove('active'));
+    });
   }
 
   // Функция для сброса активных классов у всех видео-блоков
   function resetAllVideoBlocks() {
     const allVideoBlocks = document.querySelectorAll('.working-with__img-wrapper-block-video');
-    allVideoBlocks.forEach((block) => block.classList.remove('active'));
+    allVideoBlocks.forEach((block) => {
+      block.classList.remove('active');
+      const video = block.querySelector('video');
+      if (video) video.pause(); // Останавливаем видео, если оно было запущено
+    });
   }
 
   // Функция для обновления активного видео-блока в зависимости от активного слайда и активного таба
@@ -42,7 +41,14 @@ function workingWith() {
     const activeVideoBlock = videoBlocks[activeIndex];
     if (activeVideoBlock) {
       activeVideoBlock.classList.add('active');
+      const video = activeVideoBlock.querySelector('video');
+      if (video) video.play(); // Запускаем видео при активации
     }
+  }
+
+  // Функция для сброса класса active у всех статических блоков
+  function resetStaticBlocks() {
+    staticBlocks.forEach((block) => block.classList.remove('active'));
   }
 
   // Функция для обновления видимых блоков в зависимости от выбранного таба
@@ -55,20 +61,24 @@ function workingWith() {
       targetContentBox.classList.add('active');
     }
 
-    // Деактивируем все блоки с видео
+    // Деактивируем все блоки с видео (не активируем их при переключении вкладок)
     videoWrapperBlocks.forEach((wrapper) => wrapper.classList.remove('active'));
-    // Активируем соответствующий блок с видео
+
+    // Активируем только статический блок (без видео)
     const targetVideoWrapperBlock = document.querySelector(`.working-with__img-wrapper-block[data-block="${activeTab}"]`);
     if (targetVideoWrapperBlock) {
       targetVideoWrapperBlock.classList.add('active');
     }
 
-    // Сбрасываем все видео-блоки и активируем первый блок
-    resetAllVideoBlocks(); // Сбрасываем все активные блоки
-    const firstVideoBlock = targetVideoWrapperBlock.querySelector('.working-with__img-wrapper-block-video');
-    if (firstVideoBlock) {
-      firstVideoBlock.classList.add('active');
+    // Возвращаем класс active для блока static при переключении вкладок
+    resetStaticBlocks(); // Сбрасываем классы active со всех статических блоков
+    const staticBlock = targetVideoWrapperBlock.querySelector('.working-with__img-wrapper-block-static');
+    if (staticBlock) {
+      staticBlock.classList.add('active'); // Только статический блок получает класс active
     }
+
+    // Сбрасываем все активные классы слайдов при переключении вкладки
+    resetSlideActiveClass();
   }
 
   // Инициализация Swiper для каждого слайдера
@@ -108,11 +118,12 @@ function workingWith() {
           const activeIndex = this.activeIndex;
           const activeTab = document.querySelector('.working-with__tab.active').dataset.tab;
 
-          // Сбрасываем классы active на всех слайдах и добавляем активный
-          resetSlideActiveClass(swiperContainer);
-          slides[activeIndex].classList.add('active');
-
+          resetSlideActiveClass(); // Сбрасываем классы active на всех слайдах
+          slides[activeIndex].classList.add('active'); // Добавляем активный класс текущему слайду
           updateVideoBlock(activeIndex, activeTab); // Обновляем активный видео-блок для текущего таба
+
+          // Удаляем класс active у блока static при смене слайда
+          resetStaticBlocks();
         },
       },
     });
@@ -136,16 +147,16 @@ function workingWith() {
         textSwiperInstance.slideTo(index);
         const activeTab = document.querySelector('.working-with__tab.active').dataset.tab;
 
-        // Сбрасываем классы active на всех слайдах и добавляем активный
-        resetSlideActiveClass(swiperContainer);
+        // Сбрасываем классы active на всех слайдах
+        resetSlideActiveClass();
         slide.classList.add('active');
+
+        // Убираем класс active с блока static при клике на слайд
+        resetStaticBlocks();
 
         updateVideoBlock(index, activeTab); // Обновляем активный видео-блок при клике для текущего таба
       });
     });
-
-    // Активируем первый слайд при инициализации
-    activateFirstSlide(swiperContainer);
   });
 
   // Включаем переключение табов
@@ -162,18 +173,27 @@ function workingWith() {
       // Обновляем соответствующий контент и видео блоки
       updateContent(targetTab);
 
-      // Активируем первый слайд для нового таба
-      const activeSwiper = document.querySelector('.working-with__main-swiper');
-      if (activeSwiper) {
-        resetSlideActiveClass(activeSwiper);
-        activateFirstSlide(activeSwiper);
-      }
+      // Сбрасываем все активные классы у слайдов
+      resetSlideActiveClass();
     });
   });
 
-  // По умолчанию активируем первый видео-блок и первый контент-блок
-  updateContent('structure');
-  updateVideoBlock(0, 'structure');
+  // Устанавливаем начальное состояние
+  const initialActiveBlock = document.querySelector('.working-with__img-wrapper-block');
+  if (initialActiveBlock) {
+    initialActiveBlock.classList.add('active');
+  }
+  if (staticBlocks) {
+    staticBlocks.forEach(staticBlock => {
+      staticBlock.classList.add('active');
+    });
+  }
+
+  // Устанавливаем класс active первому блоку swiper-wrapper-box при загрузке страницы
+  const firstContentBox = document.querySelector('.working-with__swiper-wrapper-box');
+  if (firstContentBox) {
+    firstContentBox.classList.add('active');
+  }
 }
 
 // Убедимся, что DOM полностью загружен перед инициализацией
@@ -182,7 +202,3 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 export default workingWith;
-
-
-
-

@@ -92,7 +92,7 @@ const Swipers = () => {
     slidesPerView: 1,
     slidesPerGroup: 1,
     effect: 'creative',
-
+    speed: 1000,
     creativeEffect: {
       limitProgress: 1,
       perspective: true,
@@ -105,9 +105,9 @@ const Swipers = () => {
       },
 
       prev: {
-        translate: [0, '200%', 0],
-        // rotate: [10, 0, 0],
-        opacity: 0
+        translate: [0, '-11rem', 0],  // Сделаем translate таким же, как у next
+        scale: 0.9,                  // Сделаем scale таким же, как у next
+        opacity: 1                   // Устанавливаем opacity для единообразного эффекта
       }
     },
 
@@ -224,7 +224,7 @@ const Swipers = () => {
     slidesPerView: 1,
     slidesPerGroup: 1,
     spaceBetween: 16,
-
+    speed: 1000,
     breakpoints: {
       768: {
         slidesPerView: 2,
