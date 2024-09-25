@@ -18,6 +18,18 @@
     box-shadow: 0px 15px 50px 0px #7f7f7f33;
   }
 
+  &__left--two {
+    position: absolute;
+    width: 71.9rem;
+    @include small-tablet {
+      width: 100%;
+      position: initial;
+    }
+    .txt18 {
+      color: #787B83;
+    }
+  }
+
   &__right {
     height: 100%;
     width: 101.3rem;
@@ -26,6 +38,28 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+
+  &__right--two {
+    width: 139.1rem;
+    margin-left: auto;
+    @include small-tablet {
+      width: 100%;
+      margin-left: initial;
+    }
+  }
+
+  &__right-i-m {
+    display: none;
+    @include small-tablet {
+      display: block;
+    }
+  }
+
+  &__right-i-d {
+    @include small-tablet {
+     display: none;
     }
   }
 
